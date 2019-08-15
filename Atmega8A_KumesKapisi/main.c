@@ -18,7 +18,9 @@ int main(void)
 		
 		anahtarKonumunaGoreSistemin_isletilmesi();
 
-		zamanli_islemler();		
+		zamanli_islemler();	
+		
+		led_komuta();	
     }
 }
 

@@ -15,7 +15,7 @@ void sistem_init()
 	switch_Acik_Kapali_init();
 	led_init();
 	uart_init( UART_BAUD_SELECT(UART_BAUD_RATE,F_CPU) );
-// 	timer1_PWM_init();
+	timer1_init();
 	timer0_init();
 	optik_Encoder_init();
 	optik_kapi_emniyeti_init();
@@ -37,6 +37,7 @@ void devre_init()
 	isikSeviyesi=0;
 	sayacGece=0;
 	sayacGunduz=0;
+	ledPeriyot=64;
 	sayac_motorAdim=0;
 	gunduzDurumu=true;
 	calismaModu='O';
@@ -51,7 +52,6 @@ void timer0_init()
 
 void timer1_init()	
 {
-// 	TCCR1A |= (1<<COM1A1)|(1<<WGM10);
 	TCCR1B |= (1<<WGM12)|(1<<CS12)|(1<<CS10);
 	OCR1A = ZAMANLI_ISLEMLER_PERIYOT;
 	TIMSK |= (1 << OCIE1A);
@@ -68,13 +68,14 @@ ISR(TIMER0_OVF_vect)
 	sayactimer0++;
 	if (sayactimer0>ledPeriyot)
 	{
-		sayactimer0=0;
 		if (durumLed)
 		{
+			sayactimer0=0;
 			durumLed=false;
 		} 
 		else
 		{
+			sayactimer0=(ledPeriyot-3);
 			durumLed=true;
 		}
 	}
