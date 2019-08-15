@@ -87,10 +87,14 @@ void switchDurumunaGoreSayacAyarlama()
 	if (durum_switch_acik())
 	{
 		sayac_motorAdim=0;
+		ledPeriyot=LED_NORMAL;
+		motor1_sikisma=false;
 	}
 	else if (durum_switch_kapali())
 	{
 		sayac_motorAdim=50;
+		ledPeriyot=LED_NORMAL;
+		motor1_sikisma=false;
 	}
 
 	if (sayac_motorAdim<0)
@@ -131,6 +135,10 @@ void emniyetTedbirleri()
 		ledAc();
 		sayacEmniyet=0;
 	}
+	else if(motor1_sikisma)
+	{
+		calismaModu='T';
+	}
 	else
 	{
 		if (sayacEmniyet>EMNIYET_BEKLEME_SURESI)
@@ -169,6 +177,15 @@ void calismaModlarininUygulanmasi()
 		break;
 				
 		case 'T':
+			if (motor1_yon)
+			{
+				kapiyi_ac();
+			}
+			else
+			{
+				kapiyi_kapat();
+			}
+	
 				
 		break;
 	}
@@ -185,6 +202,7 @@ void zamanli_islemler()
 			isikSeviyesi=(ADC_get_conversion(6));
 			anahtarKonumu=(ADC_get_conversion(7)/340);//üç konumlu anahtar kullanacaðýmýz için 340'a böldüm
 			gece_gunduz_algilama();
+			motor1_sikisiklik_kontrolu();
 			uart_yazdir();
 		}
 	}
@@ -192,6 +210,23 @@ void zamanli_islemler()
 	{
 		birSaniye=true;
 	}	
+}
+
+void motor1_sikisiklik_kontrolu()
+{
+	if (motor1_enable())
+	{
+		if (sayac_motorAdim==onceki_sayac_motorAdim)
+		{
+			motor1_sikisma=true;
+			ledPeriyot=LED_ARIZA;
+		}
+		else
+		{
+			motor1_sikisma=false;
+		}
+	} 
+	onceki_sayac_motorAdim=sayac_motorAdim;
 }
 
 void led_komuta()

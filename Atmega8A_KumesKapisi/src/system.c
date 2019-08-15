@@ -37,7 +37,7 @@ void devre_init()
 	isikSeviyesi=0;
 	sayacGece=0;
 	sayacGunduz=0;
-	ledPeriyot=64;
+	ledPeriyot=LED_NORMAL;
 	sayac_motorAdim=0;
 	gunduzDurumu=true;
 	calismaModu='O';

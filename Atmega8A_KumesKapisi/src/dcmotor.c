@@ -5,6 +5,7 @@
  *  Author: Orhan
  */ 
 #include <avr/io.h>
+#include <stdbool.h>
 #include "dcmotor.h"
 
 void motor1_init()
@@ -77,3 +78,12 @@ void motor2_acil_dur()
 	MOTOR_EN_PORT &=~ (1<<MOTOR2_EN);
 }
 
+bool motor1_enable()
+{
+	return MOTOR_EN_PIN &(1<<MOTOR1_EN);
+}
+
+bool motor2_enable()
+{
+	return MOTOR_EN_PIN &(1<<MOTOR2_EN);
+}
