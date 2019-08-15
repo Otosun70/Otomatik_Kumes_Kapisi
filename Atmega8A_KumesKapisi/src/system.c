@@ -49,10 +49,12 @@ void timer0_init()
 	TIMSK  |= (1<<TOIE0);
 }
 
-void timer1_PWM_init()	//Fast PWM 8bit
+void timer1_init()	
 {
-	TCCR1A |= (1<<COM1A1)|(1<<WGM10);
-	TCCR1B |= (1<<WGM12)|(1<<CS10);
+// 	TCCR1A |= (1<<COM1A1)|(1<<WGM10);
+	TCCR1B |= (1<<WGM12)|(1<<CS12)|(1<<CS10);
+	OCR1A = ZAMANLI_ISLEMLER_PERIYOT;
+	TIMSK |= (1 << OCIE1A);
 }
 
 void timer2_init()
@@ -64,16 +66,16 @@ void timer2_init()
 ISR(TIMER0_OVF_vect)
 {
 	sayactimer0++;
-	if (sayactimer0>ZAMANLI_ISLEMLER_SURESI)
+	if (sayactimer0>ledPeriyot)
 	{
 		sayactimer0=0;
-		if (durum0)
+		if (durumLed)
 		{
-			durum0=false;
+			durumLed=false;
 		} 
 		else
 		{
-			durum0=true;
+			durumLed=true;
 		}
 	}
 	if (sayacTest>0)
@@ -83,3 +85,14 @@ ISR(TIMER0_OVF_vect)
  
 }
 
+ISR(TIMER1_COMPA_vect)
+{
+	if (durum0)
+	{
+		durum0=false;
+	}
+	else
+	{
+		durum0=true;
+	}
+}

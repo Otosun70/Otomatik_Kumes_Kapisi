@@ -26,11 +26,8 @@
 #define MOTOR2_A			PORTB0
 #define MOTOR2_B			PORTD7
 #define MOTOR2_EN			PORTB2
-#define PWM_MOTOR1			OCR1A
-#define PWM_MOTOR2			OCR1B
 
 
-uint8_t PWM_valueMotor1;
 
 void motor1_init();
 
@@ -52,6 +49,5 @@ void motor2_dur();
 
 void motor2_acil_dur();
 
-void set_PWM();
 
 #endif /* DCMOTOR_H_ */
