@@ -39,6 +39,7 @@ void devre_init()
 	sayacGunduz=0;
 	ledPeriyot=LED_NORMAL;
 	sayac_motorAdim=0;
+	sayac_motor1_sikisma=0;
 	gunduzDurumu=true;
 	calismaModu='O';
 	optik_kapi_emniyeti_disable();

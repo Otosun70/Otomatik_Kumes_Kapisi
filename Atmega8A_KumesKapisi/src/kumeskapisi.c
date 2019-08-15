@@ -6,7 +6,7 @@
  */ 
 #include "include.h"
 
-char calismaModlari[3]={'E','O','T'};//Acik,Emniyet,Kapali,Otomatik,Test
+char calismaModlari[4]={'D','E','O','T'};//Dur,Emniyet,Otomatik,Test
 
 
 void gece_gunduz_algilama()
@@ -89,12 +89,15 @@ void switchDurumunaGoreSayacAyarlama()
 		sayac_motorAdim=0;
 		ledPeriyot=LED_NORMAL;
 		motor1_sikisma=false;
+		sayac_motor1_sikisma=0;
 	}
 	else if (durum_switch_kapali())
 	{
 		sayac_motorAdim=50;
 		ledPeriyot=LED_NORMAL;
 		motor1_sikisma=false;
+		sayac_motor1_sikisma=0;
+
 	}
 
 	if (sayac_motorAdim<0)
@@ -137,7 +140,14 @@ void emniyetTedbirleri()
 	}
 	else if(motor1_sikisma)
 	{
-		calismaModu='T';
+		if (sayac_motor1_sikisma<SIKISMADAN_KURTULMA_DENEME)
+		{
+			calismaModu='T';
+		} 
+		else
+		{
+			calismaModu='D';
+		}
 	}
 	else
 	{
@@ -156,6 +166,10 @@ void calismaModlarininUygulanmasi()
 			
 	switch(calismaModu)
 	{
+		case 'D':
+			motor1_dur();
+			
+		break;
 				
 		case 'E':
 			if (!durum_switch_kapali())	//Kapý kapalý iken tekrar açýlmamasý için switch durumuna baðlý olarak kapý açtýrýldý
@@ -177,7 +191,7 @@ void calismaModlarininUygulanmasi()
 		break;
 				
 		case 'T':
-			if (motor1_yon)
+			if (motor1_sikisma_yon)
 			{
 				kapiyi_ac();
 			}
@@ -219,7 +233,9 @@ void motor1_sikisiklik_kontrolu()
 		if (sayac_motorAdim==onceki_sayac_motorAdim)
 		{
 			motor1_sikisma=true;
+			motor1_sikisma_yon=motor1_yon;
 			ledPeriyot=LED_ARIZA;
+			sayac_motor1_sikisma++;
 		}
 		else
 		{
