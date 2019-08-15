@@ -27,7 +27,6 @@ void motor1_geri()
 	MOTOR1_PORT	|= (1<<MOTOR1_A);
 	MOTOR1_PORT &=~ (1<<MOTOR1_B);
 	MOTOR_EN_PORT |= (1<<MOTOR1_EN);
-// 	set_PWM();
 }
 
 void motor1_ileri()
@@ -35,7 +34,6 @@ void motor1_ileri()
 	MOTOR1_PORT	|= (1<<MOTOR1_B);
 	MOTOR1_PORT &=~ (1<<MOTOR1_A);
 	MOTOR_EN_PORT |= (1<<MOTOR1_EN);
-// 	set_PWM();
 }
 
 void motor1_dur()
@@ -79,7 +77,3 @@ void motor2_acil_dur()
 	MOTOR_EN_PORT &=~ (1<<MOTOR2_EN);
 }
 
-void set_PWM()
-{
-	PWM_MOTOR1=PWM_valueMotor1;
-}

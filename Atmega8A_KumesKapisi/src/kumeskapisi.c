@@ -196,13 +196,13 @@ void zamanli_islemler()
 
 void led_komuta()
 {
-	if (gunduzDurumu)
+	if (durumLed)
 	{
-// 		ledAc();
+		ledAc();
 	}
 	else
 	{
-// 		ledKapat();
+		ledKapat();
 	}
 }
 
