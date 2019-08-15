@@ -5,6 +5,7 @@
  *  Author: tosun_n
  */ 
 
+#include <stdbool.h>
 
 #ifndef DCMOTOR_H_
 #define DCMOTOR_H_
@@ -19,6 +20,7 @@
 #define MOTOR1_PORT			PORTD
 #define MOTOR2_PORTA		PORTB
 #define MOTOR_EN_PORT		PORTB
+#define MOTOR_EN_PIN		PINB
 #define MOTOR2_PORTB		PORTD
 #define MOTOR1_A			PORTD5
 #define MOTOR1_B			PORTD6
@@ -48,6 +50,10 @@ void motor2_geri();
 void motor2_dur();
 
 void motor2_acil_dur();
+
+bool motor1_enable();
+
+bool motor2_enable();
 
 
 #endif /* DCMOTOR_H_ */
