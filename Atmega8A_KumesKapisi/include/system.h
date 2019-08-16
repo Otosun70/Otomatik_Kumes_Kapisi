@@ -15,6 +15,8 @@
 #error "F_CPU undefined, please define CPU frequency in Hz in Makefile"
 #endif
 
+#define ENABLE_WATCHDOG        1    // enable the hardware watchdog
+
 
 void sistem_init();
 

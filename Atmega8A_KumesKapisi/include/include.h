@@ -14,6 +14,7 @@
 #include <stdbool.h>
 #include <stdlib.h>
 #include <interrupt_avr8.h>
+#include <avr/wdt.h>
 #include "clock_config.h"
 #include "adc_basic.h"
 #include "kumeskapisi.h"
