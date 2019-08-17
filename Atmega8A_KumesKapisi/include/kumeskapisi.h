@@ -24,17 +24,22 @@ typedef bool durum;
 #define GUNDUZ_ISIK_SEVIYESI		50
 #define DEGISIM_BEKLEME_SURESI		20
 #define ACMA_KAPAMA_ADIM_SAYISI		50
-// #define ZAMANLI_ISLEMLER_SURESI		F_CPU/0x80000
 #define ZAMANLI_ISLEMLER_PERIYOT	F_CPU/2048
 #define EMNIYET_BEKLEME_SURESI		5
+#define LED_NORMAL					64
+#define LED_ARIZA					8
+#define SIKISMADAN_KURTULMA_DENEME	4
+
 
 seviye_t isikSeviyesi;
 konum_t anahtarKonumu;
 sayac_t sayacGunduz;
 sayac_t sayacGece;
 sayac_t sayac_motorAdim;
+sayac_t onceki_sayac_motorAdim;
 sayac_t sayactimer0;
 sayac_t sayacEmniyet;
+sayac_t sayac_motor1_sikisma;
 uint8_t ledPeriyot;
 
 durum durum0;
@@ -42,6 +47,8 @@ durum durumLed;
 durum birSaniye;
 durum gunduzDurumu;
 durum motor1_yon;
+durum motor1_sikisma;
+durum motor1_sikisma_yon;
 char calismaModu;
 
 
@@ -67,6 +74,8 @@ void switchDurumunaGoreSayacAyarlama();
 void anahtarKonumunaGoreSistemin_isletilmesi();
 
 void calismaModlarininUygulanmasi();
+
+void motor1_sikisiklik_kontrolu();
 
 void WDT_init();
 

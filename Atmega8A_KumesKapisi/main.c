@@ -21,6 +21,10 @@ int main(void)
 		zamanli_islemler();	
 		
 		led_komuta();	
+		
+		#if (ENABLE_WATCHDOG == 1)
+		wdt_reset();
+		#endif
     }
 }
 

@@ -12,6 +12,7 @@ void sistem_init()
 	motor2_init();
 	motor1_init();
 	ADC_init();
+	WDT_init();
 	switch_Acik_Kapali_init();
 	led_init();
 	uart_init( UART_BAUD_SELECT(UART_BAUD_RATE,F_CPU) );
@@ -37,11 +38,18 @@ void devre_init()
 	isikSeviyesi=0;
 	sayacGece=0;
 	sayacGunduz=0;
-	ledPeriyot=64;
+	ledPeriyot=LED_NORMAL;
 	sayac_motorAdim=0;
+	sayac_motor1_sikisma=0;
 	gunduzDurumu=true;
 	calismaModu='O';
 	optik_kapi_emniyeti_disable();
+}
+void WDT_init()
+{
+	#if (ENABLE_WATCHDOG == 1)
+	wdt_enable(WDTO_1S);
+	#endif
 }
 
 void timer0_init()
