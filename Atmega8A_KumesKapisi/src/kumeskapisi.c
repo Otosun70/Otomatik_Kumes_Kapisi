@@ -6,7 +6,7 @@
  */ 
 #include "include.h"
 
-char calismaModlari[4]={'D','E','O','T'};//Dur,Emniyet,Otomatik,Test
+char calismaModlari[5]={'D','E','O','S','T'};//Dur,Emniyet,Otomatik,Sýkýþma,Test
 
 
 void gece_gunduz_algilama()
@@ -69,6 +69,17 @@ void kapiyi_ac()
 	}
 
 }
+void kapi_acik_kapali_kontrolu()
+{
+	if (sayac_motorAdim==0 && !durum_switch_acik())
+	{
+		sayac_motorAdim=sayac_motorAdim+4;
+	} 
+	else if (sayac_motorAdim==ACMA_KAPAMA_ADIM_SAYISI && !durum_switch_kapali())
+	{
+		sayac_motorAdim=ACMA_KAPAMA_ADIM_SAYISI-4;
+	}
+}
 
 void kapiyi_otomatik_acma_kapatma()
 {
@@ -87,14 +98,14 @@ void switchDurumunaGoreSayacAyarlama()
 	if (durum_switch_acik())
 	{
 		sayac_motorAdim=0;
-		ledPeriyot=LED_NORMAL;
+		ledPeriyot=LED_NORMAL_ACIK;
 		motor1_sikisma=false;
 		sayac_motor1_sikisma=0;
 	}
 	else if (durum_switch_kapali())
 	{
 		sayac_motorAdim=50;
-		ledPeriyot=LED_NORMAL;
+		ledPeriyot=LED_NORMAL_KAPALI;
 		motor1_sikisma=false;
 		sayac_motor1_sikisma=0;
 
@@ -147,6 +158,7 @@ void emniyetTedbirleri()
 		else
 		{
 			calismaModu='D';
+			sayac_motorAdim=ACMA_KAPAMA_ADIM_SAYISI;	//Motor durdurulduðunda kapý optik emniyetinin devre dýþý kalmasý için
 		}
 	}
 	else
@@ -187,10 +199,14 @@ void calismaModlarininUygulanmasi()
 		case 'O':
 				
 			kapiyi_otomatik_acma_kapatma();
+			if (birSaniye)
+			{
+				kapi_acik_kapali_kontrolu();
+			}
 				
 		break;
 				
-		case 'T':
+		case 'S':
 			if (motor1_sikisma_yon)
 			{
 				kapiyi_ac();
@@ -200,7 +216,10 @@ void calismaModlarininUygulanmasi()
 				kapiyi_kapat();
 			}
 	
-				
+		break;
+		
+		case 'T':
+		
 		break;
 	}
 }
