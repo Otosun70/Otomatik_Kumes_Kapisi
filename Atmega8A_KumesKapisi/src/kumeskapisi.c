@@ -3,11 +3,24 @@
  *
  * Created: 13.07.2019 12:04:52
  *  Author: Orhan
+ *
+ *	Bu proje tavuklarýn barýndýðý bir kümesin kapýsýný güneþ doðduðunda açmasý,
+ *	güneþ battýðýnda kapatmasý için yapýlmýþtýr. 
+ *
+ *	Her gün sabah ve akþam hayvanlarla zamanýnda ilgilenme fýrsatýnýn bulunmadýðý 
+ *	durumlarda hayvanlarýn zarar görmesini önlemek amaçlanmýþtýr.
+ *	
+ *	Proje farklý amaçlar için kullanýlabilir.
+ *
  */ 
 #include "include.h"
 
 char calismaModlari[5]={'D','E','O','S','T'};//Dur,Emniyet,Otomatik,Sýkýþma,Test
 
+/* 
+	Belirlenen süre kadar istenen iþýk seviyesi devam ettiðinde 
+	gündüz veya gece olduðuna karar veren fonksiyon 
+*/  
 
 void gece_gunduz_algilama()
 {
@@ -69,6 +82,12 @@ void kapiyi_ac()
 	}
 
 }
+
+/*
+	Kapý dýþarýdan müdahale ile açýlmaya veya kapatýlmaya çalýþýldýðýnda 
+	bu durumu algýlayýp kapýyý olmasý gereken duruma getiren fonksiyon.
+*/
+
 void kapi_acik_kapali_kontrolu()
 {
 	if (sayac_motorAdim==0 && !durum_switch_acik())
@@ -92,7 +111,10 @@ void kapiyi_otomatik_acma_kapatma()
 		kapiyi_kapat();
 	}
 }
-
+/*
+	Kapý, donanýmda bulunan siwitch'lere ulaþtýðýnda sayaçlarý ve 
+	motorun sýkýþmasýna karþý durumlarý ayarlayan fonksiyon 
+*/
 void switchDurumunaGoreSayacAyarlama()
 {
 	if (durum_switch_acik())
@@ -121,7 +143,10 @@ void switchDurumunaGoreSayacAyarlama()
 	}
 
 }
-
+/*
+	Bu fonksiyon; 3 konumlu bir anahtar ile kapýyý "Açýk","Kapalý" ve "Otomatik" 
+	konumuna manuel olarak durumlandýrýlabilir.
+*/
 void anahtarKonumunaGoreSistemin_isletilmesi()
 {
 	switch (anahtarKonumu)
@@ -139,7 +164,12 @@ void anahtarKonumunaGoreSistemin_isletilmesi()
 		break;
 	}
 }
-
+/*
+	Bu fonksiyon; kapý kapanýrken araya sýkýþmayý önlemek için 
+	kapýnýn ön tarafýnda bulunan IR ýþýk perdesini aktif hale getirir,
+	bir nesne tespit ettiðinde istenen süre kadar kapýyý açar bekler 
+	ve tekrar kapatýr.
+*/
 void emniyetTedbirleri()
 {
 
@@ -171,7 +201,9 @@ void emniyetTedbirleri()
 		ledKapat();
 	}
 }
-
+/*
+	Bu fonksiyon; farklý durumlara göre belirlenen çalýþma modunu uygular.
+*/
 void calismaModlarininUygulanmasi()
 {
 	emniyetTedbirleri();
@@ -199,7 +231,7 @@ void calismaModlarininUygulanmasi()
 		case 'O':
 				
 			kapiyi_otomatik_acma_kapatma();
-			if (birSaniye)
+			if (!birSaniye)
 			{
 				kapi_acik_kapali_kontrolu();
 			}
@@ -224,6 +256,10 @@ void calismaModlarininUygulanmasi()
 	}
 }
 
+/*
+	Bu fonksiyon 1 saniye periyod ile çalýþýr. Fonksiyon içinde ýþýk seviyesi ölçülür, 
+	anahtar konumu kontrol edilir, motor sýkýþýklýðý kontrol edilir.
+*/
 void zamanli_islemler()
 {
 	if (durum0)
@@ -244,6 +280,11 @@ void zamanli_islemler()
 		birSaniye=true;
 	}	
 }
+
+/*
+	Bu fonksiyonda motorun düzgün çalýþýp çalýþmadýðý optik enkoder ile 
+	karþýlaþtýrýlarak tespit edilir ve deðiþkene atanýr.
+*/
 
 void motor1_sikisiklik_kontrolu()
 {
