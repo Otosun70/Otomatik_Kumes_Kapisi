@@ -50,7 +50,7 @@ void gece_gunduz_algilama()
 
 void kapiyi_kapat()
 {
-	if (sayac_motorAdim < ACMA_KAPAMA_ADIM_SAYISI)
+	if (sayac_motorAdim < KAPANMA_ADIM_SAYISI)
 	{
 		optik_kapi_emniyeti_enable();	
 		optik_Encoder_enable();
@@ -68,7 +68,7 @@ void kapiyi_kapat()
 
 void kapiyi_ac()
 {
-	if (sayac_motorAdim > 0)
+	if (sayac_motorAdim > BASLANGIC_ADIMI)
 	{
 		optik_Encoder_enable();
 		motor1_geri();
@@ -90,13 +90,13 @@ void kapiyi_ac()
 
 void kapi_acik_kapali_kontrolu()
 {
-	if (sayac_motorAdim==0 && !durum_switch_acik())
+	if (sayac_motorAdim==BASLANGIC_ADIMI && !durum_switch_acik())
 	{
 		sayac_motorAdim=sayac_motorAdim+4;
 	} 
-	else if (sayac_motorAdim==ACMA_KAPAMA_ADIM_SAYISI && !durum_switch_kapali())
+	else if (sayac_motorAdim==KAPANMA_ADIM_SAYISI && !durum_switch_kapali())
 	{
-		sayac_motorAdim=ACMA_KAPAMA_ADIM_SAYISI-4;
+		sayac_motorAdim=KAPANMA_ADIM_SAYISI-4;
 	}
 }
 
@@ -119,27 +119,27 @@ void switchDurumunaGoreSayacAyarlama()
 {
 	if (durum_switch_acik())
 	{
-		sayac_motorAdim=0;
+		sayac_motorAdim=BASLANGIC_ADIMI;
 		ledPeriyot=LED_NORMAL_ACIK;
 		motor1_sikisma=false;
 		sayac_motor1_sikisma=0;
 	}
 	else if (durum_switch_kapali())
 	{
-		sayac_motorAdim=50;
+		sayac_motorAdim=KAPANMA_ADIM_SAYISI;
 		ledPeriyot=LED_NORMAL_KAPALI;
 		motor1_sikisma=false;
 		sayac_motor1_sikisma=0;
 
 	}
 
-	if (sayac_motorAdim<0)
+	if (sayac_motorAdim < BASLANGIC_ADIMI)
 	{
-		sayac_motorAdim=0;
+		sayac_motorAdim = BASLANGIC_ADIMI;
 	} 
-	else if (sayac_motorAdim> ACMA_KAPAMA_ADIM_SAYISI)
+	else if (sayac_motorAdim > KAPANMA_ADIM_SAYISI)
 	{
-		sayac_motorAdim=ACMA_KAPAMA_ADIM_SAYISI;
+		sayac_motorAdim = KAPANMA_ADIM_SAYISI;
 	}
 
 }
@@ -181,14 +181,14 @@ void emniyetTedbirleri()
 	}
 	else if(motor1_sikisma)
 	{
-		if (sayac_motor1_sikisma<SIKISMADAN_KURTULMA_DENEME)
+		if (sayac_motor1_sikisma < SIKISMADAN_KURTULMA_DENEME)
 		{
-			calismaModu='T';
+			calismaModu='S';
 		} 
 		else
 		{
 			calismaModu='D';
-			sayac_motorAdim=ACMA_KAPAMA_ADIM_SAYISI;	//Motor durdurulduðunda kapý optik emniyetinin devre dýþý kalmasý için
+// 			sayac_motorAdim=KAPANMA_ADIM_SAYISI;	//Motor durdurulduðunda kapý optik emniyetinin devre dýþý kalmasý için
 		}
 	}
 	else
@@ -212,6 +212,8 @@ void calismaModlarininUygulanmasi()
 	{
 		case 'D':
 			motor1_dur();
+			optik_kapi_emniyeti_disable();
+			optik_Encoder_disable();
 			
 		break;
 				
