@@ -29,10 +29,10 @@ void gece_gunduz_algilama()
 		sayacGece++;
 		sayacGunduz=0;
 		
-		if (sayacGece>DEGISIM_BEKLEME_SURESI)
+		if (sayacGece>(DEGISIM_BEKLEME_SURESI+kapanmaGecikmesi))
 		{
 			gunduzDurumu=false;
-			sayacGece=DEGISIM_BEKLEME_SURESI+1;
+			sayacGece=(DEGISIM_BEKLEME_SURESI+kapanmaGecikmesi+1);
 		}
 	}
 	else if (isikSeviyesi >= GUNDUZ_ISIK_SEVIYESI)
@@ -272,6 +272,7 @@ void zamanli_islemler()
 			sayacEmniyet++;
 			isikSeviyesi=(ADC_get_conversion(6));
 			anahtarKonumu=(ADC_get_conversion(7)/340);//üç konumlu anahtar kullanacaðýmýz için 340'a böldüm
+			kapanmaGecikmesi=(ADC_get_conversion(4)*4);//1024*4/60=68 dakikalýk gecikme ayarlayabilmek için
 			gece_gunduz_algilama();
 			motor1_sikisiklik_kontrolu();
 			uart_yazdir();
@@ -327,12 +328,12 @@ void uart_yazdir()
 	uart_puts("\t");
 	uart_puts(buffer);        
 	uart_puts("\t");
-/*
+
 	itoa( sayacGece, buffer, 10);
 	uart_puts(buffer);
 	uart_puts("\t");
-	*/
-	itoa( anahtarKonumu, buffer, 10);
+	
+	itoa( kapanmaGecikmesi, buffer, 10);
 	uart_puts(buffer);
 	uart_puts("\t");
 	

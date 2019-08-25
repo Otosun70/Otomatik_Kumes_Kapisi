@@ -3,31 +3,31 @@ Atmega8A_KumesKapisi.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .text         00000746  00000000  00000000  00000094  2**1
+  0 .text         0000079e  00000000  00000000  00000094  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  1 .data         00000004  00800060  00000746  000007da  2**0
+  1 .data         00000004  00800060  0000079e  00000832  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  2 .bss          00000059  00800064  00800064  000007de  2**0
+  2 .bss          0000005c  00800064  00800064  00000836  2**0
                   ALLOC
-  3 .comment      00000030  00000000  00000000  000007de  2**0
+  3 .comment      00000030  00000000  00000000  00000836  2**0
                   CONTENTS, READONLY
-  4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000810  2**2
+  4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000868  2**2
                   CONTENTS, READONLY
-  5 .debug_aranges 000002a8  00000000  00000000  0000084c  2**0
+  5 .debug_aranges 000002a8  00000000  00000000  000008a4  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_info   00001e92  00000000  00000000  00000af4  2**0
+  6 .debug_info   00001f96  00000000  00000000  00000b4c  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_abbrev 00000aaf  00000000  00000000  00002986  2**0
+  7 .debug_abbrev 00000aaf  00000000  00000000  00002ae2  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_line   000011f9  00000000  00000000  00003435  2**0
+  8 .debug_line   0000121d  00000000  00000000  00003591  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_frame  0000053c  00000000  00000000  00004630  2**2
+  9 .debug_frame  0000053c  00000000  00000000  000047b0  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    00000931  00000000  00000000  00004b6c  2**0
+ 10 .debug_str    00000942  00000000  00000000  00004cec  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    0000053e  00000000  00000000  0000549d  2**0
+ 11 .debug_loc    00000563  00000000  00000000  0000562e  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 00000250  00000000  00000000  000059db  2**0
+ 12 .debug_ranges 00000250  00000000  00000000  00005b91  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -39,13 +39,13 @@ Disassembly of section .text:
    6:	2a c0       	rjmp	.+84     	; 0x5c <__bad_interrupt>
    8:	29 c0       	rjmp	.+82     	; 0x5c <__bad_interrupt>
    a:	28 c0       	rjmp	.+80     	; 0x5c <__bad_interrupt>
-   c:	b9 c2       	rjmp	.+1394   	; 0x580 <__vector_6>
+   c:	e5 c2       	rjmp	.+1482   	; 0x5d8 <__vector_6>
    e:	26 c0       	rjmp	.+76     	; 0x5c <__bad_interrupt>
   10:	25 c0       	rjmp	.+74     	; 0x5c <__bad_interrupt>
-  12:	7d c2       	rjmp	.+1274   	; 0x50e <__vector_9>
+  12:	a9 c2       	rjmp	.+1362   	; 0x566 <__vector_9>
   14:	23 c0       	rjmp	.+70     	; 0x5c <__bad_interrupt>
-  16:	ca c2       	rjmp	.+1428   	; 0x5ac <__vector_11>
-  18:	f5 c2       	rjmp	.+1514   	; 0x604 <__vector_12>
+  16:	f6 c2       	rjmp	.+1516   	; 0x604 <__vector_11>
+  18:	21 c3       	rjmp	.+1602   	; 0x65c <__vector_12>
   1a:	20 c0       	rjmp	.+64     	; 0x5c <__bad_interrupt>
   1c:	1f c0       	rjmp	.+62     	; 0x5c <__bad_interrupt>
   1e:	1e c0       	rjmp	.+60     	; 0x5c <__bad_interrupt>
@@ -65,7 +65,7 @@ Disassembly of section .text:
   32:	10 e0       	ldi	r17, 0x00	; 0
   34:	a0 e6       	ldi	r26, 0x60	; 96
   36:	b0 e0       	ldi	r27, 0x00	; 0
-  38:	e6 e4       	ldi	r30, 0x46	; 70
+  38:	ee e9       	ldi	r30, 0x9E	; 158
   3a:	f7 e0       	ldi	r31, 0x07	; 7
   3c:	02 c0       	rjmp	.+4      	; 0x42 <__SREG__+0x3>
   3e:	05 90       	lpm	r0, Z+
@@ -84,11 +84,11 @@ Disassembly of section .text:
   50:	1d 92       	st	X+, r1
 
 00000052 <.do_clear_bss_start>:
-  52:	ad 3b       	cpi	r26, 0xBD	; 189
+  52:	a0 3c       	cpi	r26, 0xC0	; 192
   54:	b2 07       	cpc	r27, r18
   56:	e1 f7       	brne	.-8      	; 0x50 <.do_clear_bss_loop>
   58:	02 d0       	rcall	.+4      	; 0x5e <main>
-  5a:	73 c3       	rjmp	.+1766   	; 0x742 <_exit>
+  5a:	9f c3       	rjmp	.+1854   	; 0x79a <_exit>
 
 0000005c <__bad_interrupt>:
   5c:	d1 cf       	rjmp	.-94     	; 0x0 <__vectors>
@@ -100,20 +100,20 @@ Disassembly of section .text:
 int main(void)
 {
 	sistem_init();
-  5e:	46 d2       	rcall	.+1164   	; 0x4ec <sistem_init>
+  5e:	72 d2       	rcall	.+1252   	; 0x544 <sistem_init>
     while (1) 
     {
 		switchDurumunaGoreSayacAyarlama();
-  60:	ef d0       	rcall	.+478    	; 0x240 <switchDurumunaGoreSayacAyarlama>
+  60:	00 d1       	rcall	.+512    	; 0x262 <switchDurumunaGoreSayacAyarlama>
 		
 		anahtarKonumunaGoreSistemin_isletilmesi();
-  62:	67 d1       	rcall	.+718    	; 0x332 <anahtarKonumunaGoreSistemin_isletilmesi>
+  62:	77 d1       	rcall	.+750    	; 0x352 <anahtarKonumunaGoreSistemin_isletilmesi>
 
 		zamanli_islemler();	
-  64:	e5 d1       	rcall	.+970    	; 0x430 <zamanli_islemler>
+  64:	05 d2       	rcall	.+1034   	; 0x470 <zamanli_islemler>
 		
 		led_komuta();	
-  66:	93 d1       	rcall	.+806    	; 0x38e <led_komuta>
+  66:	a3 d1       	rcall	.+838    	; 0x3ae <led_komuta>
 		
 		#if (ENABLE_WATCHDOG == 1)
 		wdt_reset();
@@ -424,7 +424,7 @@ ISR(INT0_vect){
  150:	8f 93       	push	r24
 
 	if (motor1_yon)
- 152:	80 91 b2 00 	lds	r24, 0x00B2	; 0x8000b2 <motor1_yon>
+ 152:	80 91 b5 00 	lds	r24, 0x00B5	; 0x8000b5 <motor1_yon>
  156:	88 23       	and	r24, r24
  158:	31 f0       	breq	.+12     	; 0x166 <__vector_1+0x20>
 	{
@@ -459,1058 +459,1095 @@ void gece_gunduz_algilama()
  17c:	80 91 a9 00 	lds	r24, 0x00A9	; 0x8000a9 <isikSeviyesi>
  180:	90 91 aa 00 	lds	r25, 0x00AA	; 0x8000aa <isikSeviyesi+0x1>
  184:	00 97       	sbiw	r24, 0x00	; 0
- 186:	79 f4       	brne	.+30     	; 0x1a6 <gece_gunduz_algilama+0x2a>
+ 186:	f1 f4       	brne	.+60     	; 0x1c4 <gece_gunduz_algilama+0x48>
 	{
 		sayacGece++;
  188:	80 91 ac 00 	lds	r24, 0x00AC	; 0x8000ac <sayacGece>
- 18c:	8f 5f       	subi	r24, 0xFF	; 255
- 18e:	80 93 ac 00 	sts	0x00AC, r24	; 0x8000ac <sayacGece>
+ 18c:	90 91 ad 00 	lds	r25, 0x00AD	; 0x8000ad <sayacGece+0x1>
+ 190:	01 96       	adiw	r24, 0x01	; 1
+ 192:	90 93 ad 00 	sts	0x00AD, r25	; 0x8000ad <sayacGece+0x1>
+ 196:	80 93 ac 00 	sts	0x00AC, r24	; 0x8000ac <sayacGece>
 		sayacGunduz=0;
- 192:	10 92 bb 00 	sts	0x00BB, r1	; 0x8000bb <sayacGunduz>
+ 19a:	10 92 be 00 	sts	0x00BE, r1	; 0x8000be <sayacGunduz>
 		
-		if (sayacGece>DEGISIM_BEKLEME_SURESI)
- 196:	8d 33       	cpi	r24, 0x3D	; 61
- 198:	bc f0       	brlt	.+46     	; 0x1c8 <gece_gunduz_algilama+0x4c>
+		if (sayacGece>(DEGISIM_BEKLEME_SURESI+kapanmaGecikmesi))
+ 19e:	20 91 af 00 	lds	r18, 0x00AF	; 0x8000af <kapanmaGecikmesi>
+ 1a2:	30 91 b0 00 	lds	r19, 0x00B0	; 0x8000b0 <kapanmaGecikmesi+0x1>
+ 1a6:	a9 01       	movw	r20, r18
+ 1a8:	44 5c       	subi	r20, 0xC4	; 196
+ 1aa:	5f 4f       	sbci	r21, 0xFF	; 255
+ 1ac:	48 17       	cp	r20, r24
+ 1ae:	59 07       	cpc	r21, r25
+ 1b0:	e0 f4       	brcc	.+56     	; 0x1ea <gece_gunduz_algilama+0x6e>
 		{
 			gunduzDurumu=false;
- 19a:	10 92 b8 00 	sts	0x00B8, r1	; 0x8000b8 <gunduzDurumu>
-			sayacGece=DEGISIM_BEKLEME_SURESI+1;
- 19e:	8d e3       	ldi	r24, 0x3D	; 61
- 1a0:	80 93 ac 00 	sts	0x00AC, r24	; 0x8000ac <sayacGece>
- 1a4:	08 95       	ret
+ 1b2:	10 92 bb 00 	sts	0x00BB, r1	; 0x8000bb <gunduzDurumu>
+			sayacGece=(DEGISIM_BEKLEME_SURESI+kapanmaGecikmesi+1);
+ 1b6:	23 5c       	subi	r18, 0xC3	; 195
+ 1b8:	3f 4f       	sbci	r19, 0xFF	; 255
+ 1ba:	30 93 ad 00 	sts	0x00AD, r19	; 0x8000ad <sayacGece+0x1>
+ 1be:	20 93 ac 00 	sts	0x00AC, r18	; 0x8000ac <sayacGece>
+ 1c2:	08 95       	ret
 		}
 	}
 	else if (isikSeviyesi >= GUNDUZ_ISIK_SEVIYESI)
- 1a6:	c2 97       	sbiw	r24, 0x32	; 50
- 1a8:	78 f0       	brcs	.+30     	; 0x1c8 <gece_gunduz_algilama+0x4c>
+ 1c4:	c2 97       	sbiw	r24, 0x32	; 50
+ 1c6:	88 f0       	brcs	.+34     	; 0x1ea <gece_gunduz_algilama+0x6e>
 	{
 		sayacGunduz++;
- 1aa:	80 91 bb 00 	lds	r24, 0x00BB	; 0x8000bb <sayacGunduz>
- 1ae:	8f 5f       	subi	r24, 0xFF	; 255
- 1b0:	80 93 bb 00 	sts	0x00BB, r24	; 0x8000bb <sayacGunduz>
+ 1c8:	80 91 be 00 	lds	r24, 0x00BE	; 0x8000be <sayacGunduz>
+ 1cc:	8f 5f       	subi	r24, 0xFF	; 255
+ 1ce:	80 93 be 00 	sts	0x00BE, r24	; 0x8000be <sayacGunduz>
 		sayacGece=0;
- 1b4:	10 92 ac 00 	sts	0x00AC, r1	; 0x8000ac <sayacGece>
+ 1d2:	10 92 ad 00 	sts	0x00AD, r1	; 0x8000ad <sayacGece+0x1>
+ 1d6:	10 92 ac 00 	sts	0x00AC, r1	; 0x8000ac <sayacGece>
 
 		if (sayacGunduz>DEGISIM_BEKLEME_SURESI)
- 1b8:	8d 33       	cpi	r24, 0x3D	; 61
- 1ba:	34 f0       	brlt	.+12     	; 0x1c8 <gece_gunduz_algilama+0x4c>
+ 1da:	8d 33       	cpi	r24, 0x3D	; 61
+ 1dc:	34 f0       	brlt	.+12     	; 0x1ea <gece_gunduz_algilama+0x6e>
 		{
 			gunduzDurumu=true;
- 1bc:	81 e0       	ldi	r24, 0x01	; 1
- 1be:	80 93 b8 00 	sts	0x00B8, r24	; 0x8000b8 <gunduzDurumu>
+ 1de:	81 e0       	ldi	r24, 0x01	; 1
+ 1e0:	80 93 bb 00 	sts	0x00BB, r24	; 0x8000bb <gunduzDurumu>
 			sayacGunduz=DEGISIM_BEKLEME_SURESI+1;
- 1c2:	8d e3       	ldi	r24, 0x3D	; 61
- 1c4:	80 93 bb 00 	sts	0x00BB, r24	; 0x8000bb <sayacGunduz>
- 1c8:	08 95       	ret
+ 1e4:	8d e3       	ldi	r24, 0x3D	; 61
+ 1e6:	80 93 be 00 	sts	0x00BE, r24	; 0x8000be <sayacGunduz>
+ 1ea:	08 95       	ret
 
-000001ca <kapiyi_kapat>:
+000001ec <kapiyi_kapat>:
 	}
 }
 
 void kapiyi_kapat()
 {
 	if (sayac_motorAdim < KAPANMA_ADIM_SAYISI)
- 1ca:	80 91 ab 00 	lds	r24, 0x00AB	; 0x8000ab <sayac_motorAdim>
- 1ce:	82 33       	cpi	r24, 0x32	; 50
- 1d0:	3c f4       	brge	.+14     	; 0x1e0 <kapiyi_kapat+0x16>
+ 1ec:	80 91 ab 00 	lds	r24, 0x00AB	; 0x8000ab <sayac_motorAdim>
+ 1f0:	82 33       	cpi	r24, 0x32	; 50
+ 1f2:	3c f4       	brge	.+14     	; 0x202 <kapiyi_kapat+0x16>
 	{
 		optik_kapi_emniyeti_enable();	
- 1d2:	9c df       	rcall	.-200    	; 0x10c <optik_kapi_emniyeti_enable>
+ 1f4:	8b df       	rcall	.-234    	; 0x10c <optik_kapi_emniyeti_enable>
 		optik_Encoder_enable();
- 1d4:	97 df       	rcall	.-210    	; 0x104 <optik_Encoder_enable>
+ 1f6:	86 df       	rcall	.-244    	; 0x104 <optik_Encoder_enable>
 		motor1_ileri();
- 1d6:	76 df       	rcall	.-276    	; 0xc4 <motor1_ileri>
+ 1f8:	65 df       	rcall	.-310    	; 0xc4 <motor1_ileri>
 		motor1_yon=true;
- 1d8:	81 e0       	ldi	r24, 0x01	; 1
- 1da:	80 93 b2 00 	sts	0x00B2, r24	; 0x8000b2 <motor1_yon>
- 1de:	08 95       	ret
+ 1fa:	81 e0       	ldi	r24, 0x01	; 1
+ 1fc:	80 93 b5 00 	sts	0x00B5, r24	; 0x8000b5 <motor1_yon>
+ 200:	08 95       	ret
 
 	}
 	else
 	{
 		motor1_dur();
- 1e0:	75 df       	rcall	.-278    	; 0xcc <motor1_dur>
+ 202:	64 df       	rcall	.-312    	; 0xcc <motor1_dur>
 		optik_kapi_emniyeti_disable();
- 1e2:	96 df       	rcall	.-212    	; 0x110 <optik_kapi_emniyeti_disable>
+ 204:	85 df       	rcall	.-246    	; 0x110 <optik_kapi_emniyeti_disable>
 		optik_Encoder_disable();
- 1e4:	91 df       	rcall	.-222    	; 0x108 <optik_Encoder_disable>
- 1e6:	08 95       	ret
+ 206:	80 df       	rcall	.-256    	; 0x108 <optik_Encoder_disable>
+ 208:	08 95       	ret
 
-000001e8 <kapiyi_ac>:
+0000020a <kapiyi_ac>:
 	}
 }
 
 void kapiyi_ac()
 {
 	if (sayac_motorAdim > BASLANGIC_ADIMI)
- 1e8:	80 91 ab 00 	lds	r24, 0x00AB	; 0x8000ab <sayac_motorAdim>
- 1ec:	18 16       	cp	r1, r24
- 1ee:	2c f4       	brge	.+10     	; 0x1fa <kapiyi_ac+0x12>
+ 20a:	80 91 ab 00 	lds	r24, 0x00AB	; 0x8000ab <sayac_motorAdim>
+ 20e:	18 16       	cp	r1, r24
+ 210:	2c f4       	brge	.+10     	; 0x21c <kapiyi_ac+0x12>
 	{
 		optik_Encoder_enable();
- 1f0:	89 df       	rcall	.-238    	; 0x104 <optik_Encoder_enable>
+ 212:	78 df       	rcall	.-272    	; 0x104 <optik_Encoder_enable>
 		motor1_geri();
- 1f2:	64 df       	rcall	.-312    	; 0xbc <motor1_geri>
+ 214:	53 df       	rcall	.-346    	; 0xbc <motor1_geri>
 		motor1_yon=false;
- 1f4:	10 92 b2 00 	sts	0x00B2, r1	; 0x8000b2 <motor1_yon>
- 1f8:	08 95       	ret
+ 216:	10 92 b5 00 	sts	0x00B5, r1	; 0x8000b5 <motor1_yon>
+ 21a:	08 95       	ret
 
 	}
 	else
 	{
 		motor1_dur();
- 1fa:	68 df       	rcall	.-304    	; 0xcc <motor1_dur>
+ 21c:	57 df       	rcall	.-338    	; 0xcc <motor1_dur>
 		optik_Encoder_disable();
- 1fc:	85 df       	rcall	.-246    	; 0x108 <optik_Encoder_disable>
- 1fe:	08 95       	ret
+ 21e:	74 df       	rcall	.-280    	; 0x108 <optik_Encoder_disable>
+ 220:	08 95       	ret
 
-00000200 <kapi_acik_kapali_kontrolu>:
+00000222 <kapi_acik_kapali_kontrolu>:
 	bu durumu algýlayýp kapýyý olmasý gereken duruma getiren fonksiyon.
 */
 
 void kapi_acik_kapali_kontrolu()
 {
 	if (sayac_motorAdim==BASLANGIC_ADIMI && !durum_switch_acik())
- 200:	80 91 ab 00 	lds	r24, 0x00AB	; 0x8000ab <sayac_motorAdim>
- 204:	81 11       	cpse	r24, r1
- 206:	09 c0       	rjmp	.+18     	; 0x21a <kapi_acik_kapali_kontrolu+0x1a>
- 208:	91 df       	rcall	.-222    	; 0x12c <durum_switch_acik>
- 20a:	81 11       	cpse	r24, r1
- 20c:	06 c0       	rjmp	.+12     	; 0x21a <kapi_acik_kapali_kontrolu+0x1a>
+ 222:	80 91 ab 00 	lds	r24, 0x00AB	; 0x8000ab <sayac_motorAdim>
+ 226:	81 11       	cpse	r24, r1
+ 228:	09 c0       	rjmp	.+18     	; 0x23c <kapi_acik_kapali_kontrolu+0x1a>
+ 22a:	80 df       	rcall	.-256    	; 0x12c <durum_switch_acik>
+ 22c:	81 11       	cpse	r24, r1
+ 22e:	06 c0       	rjmp	.+12     	; 0x23c <kapi_acik_kapali_kontrolu+0x1a>
 	{
 		sayac_motorAdim=sayac_motorAdim+4;
- 20e:	80 91 ab 00 	lds	r24, 0x00AB	; 0x8000ab <sayac_motorAdim>
- 212:	8c 5f       	subi	r24, 0xFC	; 252
- 214:	80 93 ab 00 	sts	0x00AB, r24	; 0x8000ab <sayac_motorAdim>
- 218:	08 95       	ret
+ 230:	80 91 ab 00 	lds	r24, 0x00AB	; 0x8000ab <sayac_motorAdim>
+ 234:	8c 5f       	subi	r24, 0xFC	; 252
+ 236:	80 93 ab 00 	sts	0x00AB, r24	; 0x8000ab <sayac_motorAdim>
+ 23a:	08 95       	ret
 	} 
 	else if (sayac_motorAdim==KAPANMA_ADIM_SAYISI && !durum_switch_kapali())
- 21a:	80 91 ab 00 	lds	r24, 0x00AB	; 0x8000ab <sayac_motorAdim>
- 21e:	82 33       	cpi	r24, 0x32	; 50
- 220:	31 f4       	brne	.+12     	; 0x22e <kapi_acik_kapali_kontrolu+0x2e>
- 222:	8a df       	rcall	.-236    	; 0x138 <durum_switch_kapali>
- 224:	81 11       	cpse	r24, r1
- 226:	03 c0       	rjmp	.+6      	; 0x22e <kapi_acik_kapali_kontrolu+0x2e>
+ 23c:	80 91 ab 00 	lds	r24, 0x00AB	; 0x8000ab <sayac_motorAdim>
+ 240:	82 33       	cpi	r24, 0x32	; 50
+ 242:	31 f4       	brne	.+12     	; 0x250 <kapi_acik_kapali_kontrolu+0x2e>
+ 244:	79 df       	rcall	.-270    	; 0x138 <durum_switch_kapali>
+ 246:	81 11       	cpse	r24, r1
+ 248:	03 c0       	rjmp	.+6      	; 0x250 <kapi_acik_kapali_kontrolu+0x2e>
 	{
 		sayac_motorAdim=KAPANMA_ADIM_SAYISI-4;
- 228:	8e e2       	ldi	r24, 0x2E	; 46
- 22a:	80 93 ab 00 	sts	0x00AB, r24	; 0x8000ab <sayac_motorAdim>
- 22e:	08 95       	ret
+ 24a:	8e e2       	ldi	r24, 0x2E	; 46
+ 24c:	80 93 ab 00 	sts	0x00AB, r24	; 0x8000ab <sayac_motorAdim>
+ 250:	08 95       	ret
 
-00000230 <kapiyi_otomatik_acma_kapatma>:
+00000252 <kapiyi_otomatik_acma_kapatma>:
 	}
 }
 
 void kapiyi_otomatik_acma_kapatma()
 {
 	if(gunduzDurumu)
- 230:	80 91 b8 00 	lds	r24, 0x00B8	; 0x8000b8 <gunduzDurumu>
- 234:	88 23       	and	r24, r24
- 236:	11 f0       	breq	.+4      	; 0x23c <kapiyi_otomatik_acma_kapatma+0xc>
+ 252:	80 91 bb 00 	lds	r24, 0x00BB	; 0x8000bb <gunduzDurumu>
+ 256:	88 23       	and	r24, r24
+ 258:	11 f0       	breq	.+4      	; 0x25e <kapiyi_otomatik_acma_kapatma+0xc>
 	{
 		kapiyi_ac();
- 238:	d7 df       	rcall	.-82     	; 0x1e8 <kapiyi_ac>
- 23a:	08 95       	ret
+ 25a:	d7 df       	rcall	.-82     	; 0x20a <kapiyi_ac>
+ 25c:	08 95       	ret
 	}
 	else
 	{
 		kapiyi_kapat();
- 23c:	c6 df       	rcall	.-116    	; 0x1ca <kapiyi_kapat>
- 23e:	08 95       	ret
+ 25e:	c6 df       	rcall	.-116    	; 0x1ec <kapiyi_kapat>
+ 260:	08 95       	ret
 
-00000240 <switchDurumunaGoreSayacAyarlama>:
+00000262 <switchDurumunaGoreSayacAyarlama>:
 	Kapý, donanýmda bulunan siwitch'lere ulaþtýðýnda sayaçlarý ve 
 	motorun sýkýþmasýna karþý durumlarý ayarlayan fonksiyon 
 */
 void switchDurumunaGoreSayacAyarlama()
 {
 	if (durum_switch_acik())
- 240:	75 df       	rcall	.-278    	; 0x12c <durum_switch_acik>
- 242:	88 23       	and	r24, r24
- 244:	51 f0       	breq	.+20     	; 0x25a <switchDurumunaGoreSayacAyarlama+0x1a>
+ 262:	64 df       	rcall	.-312    	; 0x12c <durum_switch_acik>
+ 264:	88 23       	and	r24, r24
+ 266:	51 f0       	breq	.+20     	; 0x27c <switchDurumunaGoreSayacAyarlama+0x1a>
 	{
 		sayac_motorAdim=BASLANGIC_ADIMI;
- 246:	10 92 ab 00 	sts	0x00AB, r1	; 0x8000ab <sayac_motorAdim>
+ 268:	10 92 ab 00 	sts	0x00AB, r1	; 0x8000ab <sayac_motorAdim>
 		ledPeriyot=LED_NORMAL_ACIK;
- 24a:	88 e7       	ldi	r24, 0x78	; 120
- 24c:	80 93 ad 00 	sts	0x00AD, r24	; 0x8000ad <ledPeriyot>
+ 26c:	88 e7       	ldi	r24, 0x78	; 120
+ 26e:	80 93 ae 00 	sts	0x00AE, r24	; 0x8000ae <ledPeriyot>
 		motor1_sikisma=false;
- 250:	10 92 ae 00 	sts	0x00AE, r1	; 0x8000ae <motor1_sikisma>
+ 272:	10 92 b1 00 	sts	0x00B1, r1	; 0x8000b1 <motor1_sikisma>
 		sayac_motor1_sikisma=0;
- 254:	10 92 b4 00 	sts	0x00B4, r1	; 0x8000b4 <sayac_motor1_sikisma>
- 258:	08 95       	ret
+ 276:	10 92 b7 00 	sts	0x00B7, r1	; 0x8000b7 <sayac_motor1_sikisma>
+ 27a:	08 95       	ret
 	}
 	else if (durum_switch_kapali())
- 25a:	6e df       	rcall	.-292    	; 0x138 <durum_switch_kapali>
- 25c:	88 23       	and	r24, r24
- 25e:	59 f0       	breq	.+22     	; 0x276 <switchDurumunaGoreSayacAyarlama+0x36>
+ 27c:	5d df       	rcall	.-326    	; 0x138 <durum_switch_kapali>
+ 27e:	88 23       	and	r24, r24
+ 280:	59 f0       	breq	.+22     	; 0x298 <switchDurumunaGoreSayacAyarlama+0x36>
 	{
 		sayac_motorAdim=KAPANMA_ADIM_SAYISI;
- 260:	82 e3       	ldi	r24, 0x32	; 50
- 262:	80 93 ab 00 	sts	0x00AB, r24	; 0x8000ab <sayac_motorAdim>
+ 282:	82 e3       	ldi	r24, 0x32	; 50
+ 284:	80 93 ab 00 	sts	0x00AB, r24	; 0x8000ab <sayac_motorAdim>
 		ledPeriyot=LED_NORMAL_KAPALI;
- 266:	80 e4       	ldi	r24, 0x40	; 64
- 268:	80 93 ad 00 	sts	0x00AD, r24	; 0x8000ad <ledPeriyot>
+ 288:	80 e4       	ldi	r24, 0x40	; 64
+ 28a:	80 93 ae 00 	sts	0x00AE, r24	; 0x8000ae <ledPeriyot>
 		motor1_sikisma=false;
- 26c:	10 92 ae 00 	sts	0x00AE, r1	; 0x8000ae <motor1_sikisma>
+ 28e:	10 92 b1 00 	sts	0x00B1, r1	; 0x8000b1 <motor1_sikisma>
 		sayac_motor1_sikisma=0;
- 270:	10 92 b4 00 	sts	0x00B4, r1	; 0x8000b4 <sayac_motor1_sikisma>
- 274:	08 95       	ret
+ 292:	10 92 b7 00 	sts	0x00B7, r1	; 0x8000b7 <sayac_motor1_sikisma>
+ 296:	08 95       	ret
 
 	}
 
 	if (sayac_motorAdim < BASLANGIC_ADIMI)
- 276:	80 91 ab 00 	lds	r24, 0x00AB	; 0x8000ab <sayac_motorAdim>
- 27a:	88 23       	and	r24, r24
- 27c:	1c f4       	brge	.+6      	; 0x284 <switchDurumunaGoreSayacAyarlama+0x44>
+ 298:	80 91 ab 00 	lds	r24, 0x00AB	; 0x8000ab <sayac_motorAdim>
+ 29c:	88 23       	and	r24, r24
+ 29e:	1c f4       	brge	.+6      	; 0x2a6 <switchDurumunaGoreSayacAyarlama+0x44>
 	{
 		sayac_motorAdim = BASLANGIC_ADIMI;
- 27e:	10 92 ab 00 	sts	0x00AB, r1	; 0x8000ab <sayac_motorAdim>
- 282:	08 95       	ret
+ 2a0:	10 92 ab 00 	sts	0x00AB, r1	; 0x8000ab <sayac_motorAdim>
+ 2a4:	08 95       	ret
 	} 
 	else if (sayac_motorAdim > KAPANMA_ADIM_SAYISI)
- 284:	83 33       	cpi	r24, 0x33	; 51
- 286:	1c f0       	brlt	.+6      	; 0x28e <switchDurumunaGoreSayacAyarlama+0x4e>
+ 2a6:	83 33       	cpi	r24, 0x33	; 51
+ 2a8:	1c f0       	brlt	.+6      	; 0x2b0 <switchDurumunaGoreSayacAyarlama+0x4e>
 	{
 		sayac_motorAdim = KAPANMA_ADIM_SAYISI;
- 288:	82 e3       	ldi	r24, 0x32	; 50
- 28a:	80 93 ab 00 	sts	0x00AB, r24	; 0x8000ab <sayac_motorAdim>
- 28e:	08 95       	ret
+ 2aa:	82 e3       	ldi	r24, 0x32	; 50
+ 2ac:	80 93 ab 00 	sts	0x00AB, r24	; 0x8000ab <sayac_motorAdim>
+ 2b0:	08 95       	ret
 
-00000290 <emniyetTedbirleri>:
+000002b2 <emniyetTedbirleri>:
 	ve tekrar kapatýr.
 */
 void emniyetTedbirleri()
 {
 
 	if (!durum_optik_kapi_emniyeti())
- 290:	41 df       	rcall	.-382    	; 0x114 <durum_optik_kapi_emniyeti>
- 292:	81 11       	cpse	r24, r1
- 294:	07 c0       	rjmp	.+14     	; 0x2a4 <emniyetTedbirleri+0x14>
+ 2b2:	30 df       	rcall	.-416    	; 0x114 <durum_optik_kapi_emniyeti>
+ 2b4:	81 11       	cpse	r24, r1
+ 2b6:	07 c0       	rjmp	.+14     	; 0x2c6 <emniyetTedbirleri+0x14>
 	{
 		calismaModu='E';
- 296:	85 e4       	ldi	r24, 0x45	; 69
- 298:	80 93 b6 00 	sts	0x00B6, r24	; 0x8000b6 <calismaModu>
+ 2b8:	85 e4       	ldi	r24, 0x45	; 69
+ 2ba:	80 93 b9 00 	sts	0x00B9, r24	; 0x8000b9 <calismaModu>
 		ledAc();
- 29c:	43 df       	rcall	.-378    	; 0x124 <ledAc>
+ 2be:	32 df       	rcall	.-412    	; 0x124 <ledAc>
 		sayacEmniyet=0;
- 29e:	10 92 b3 00 	sts	0x00B3, r1	; 0x8000b3 <sayacEmniyet>
- 2a2:	08 95       	ret
+ 2c0:	10 92 b6 00 	sts	0x00B6, r1	; 0x8000b6 <sayacEmniyet>
+ 2c4:	08 95       	ret
 	}
 	else if(motor1_sikisma)
- 2a4:	80 91 ae 00 	lds	r24, 0x00AE	; 0x8000ae <motor1_sikisma>
- 2a8:	88 23       	and	r24, r24
- 2aa:	79 f0       	breq	.+30     	; 0x2ca <emniyetTedbirleri+0x3a>
+ 2c6:	80 91 b1 00 	lds	r24, 0x00B1	; 0x8000b1 <motor1_sikisma>
+ 2ca:	88 23       	and	r24, r24
+ 2cc:	61 f0       	breq	.+24     	; 0x2e6 <emniyetTedbirleri+0x34>
 	{
 		if (sayac_motor1_sikisma < SIKISMADAN_KURTULMA_DENEME)
- 2ac:	80 91 b4 00 	lds	r24, 0x00B4	; 0x8000b4 <sayac_motor1_sikisma>
- 2b0:	84 30       	cpi	r24, 0x04	; 4
- 2b2:	24 f4       	brge	.+8      	; 0x2bc <emniyetTedbirleri+0x2c>
+ 2ce:	80 91 b7 00 	lds	r24, 0x00B7	; 0x8000b7 <sayac_motor1_sikisma>
+ 2d2:	84 30       	cpi	r24, 0x04	; 4
+ 2d4:	24 f4       	brge	.+8      	; 0x2de <emniyetTedbirleri+0x2c>
 		{
 			calismaModu='S';
- 2b4:	83 e5       	ldi	r24, 0x53	; 83
- 2b6:	80 93 b6 00 	sts	0x00B6, r24	; 0x8000b6 <calismaModu>
- 2ba:	08 95       	ret
+ 2d6:	83 e5       	ldi	r24, 0x53	; 83
+ 2d8:	80 93 b9 00 	sts	0x00B9, r24	; 0x8000b9 <calismaModu>
+ 2dc:	08 95       	ret
 		} 
 		else
 		{
 			calismaModu='D';
- 2bc:	84 e4       	ldi	r24, 0x44	; 68
- 2be:	80 93 b6 00 	sts	0x00B6, r24	; 0x8000b6 <calismaModu>
-			sayac_motorAdim=KAPANMA_ADIM_SAYISI;	//Motor durdurulduðunda kapý optik emniyetinin devre dýþý kalmasý için
- 2c2:	82 e3       	ldi	r24, 0x32	; 50
- 2c4:	80 93 ab 00 	sts	0x00AB, r24	; 0x8000ab <sayac_motorAdim>
- 2c8:	08 95       	ret
+ 2de:	84 e4       	ldi	r24, 0x44	; 68
+ 2e0:	80 93 b9 00 	sts	0x00B9, r24	; 0x8000b9 <calismaModu>
+ 2e4:	08 95       	ret
+// 			sayac_motorAdim=KAPANMA_ADIM_SAYISI;	//Motor durdurulduðunda kapý optik emniyetinin devre dýþý kalmasý için
 		}
 	}
 	else
 	{
 		if (sayacEmniyet>EMNIYET_BEKLEME_SURESI)
- 2ca:	80 91 b3 00 	lds	r24, 0x00B3	; 0x8000b3 <sayacEmniyet>
- 2ce:	86 30       	cpi	r24, 0x06	; 6
- 2d0:	34 f0       	brlt	.+12     	; 0x2de <emniyetTedbirleri+0x4e>
+ 2e6:	80 91 b6 00 	lds	r24, 0x00B6	; 0x8000b6 <sayacEmniyet>
+ 2ea:	86 30       	cpi	r24, 0x06	; 6
+ 2ec:	34 f0       	brlt	.+12     	; 0x2fa <emniyetTedbirleri+0x48>
 		{
 			sayacEmniyet=EMNIYET_BEKLEME_SURESI+1;
- 2d2:	86 e0       	ldi	r24, 0x06	; 6
- 2d4:	80 93 b3 00 	sts	0x00B3, r24	; 0x8000b3 <sayacEmniyet>
+ 2ee:	86 e0       	ldi	r24, 0x06	; 6
+ 2f0:	80 93 b6 00 	sts	0x00B6, r24	; 0x8000b6 <sayacEmniyet>
 			calismaModu='O';
- 2d8:	8f e4       	ldi	r24, 0x4F	; 79
- 2da:	80 93 b6 00 	sts	0x00B6, r24	; 0x8000b6 <calismaModu>
+ 2f4:	8f e4       	ldi	r24, 0x4F	; 79
+ 2f6:	80 93 b9 00 	sts	0x00B9, r24	; 0x8000b9 <calismaModu>
 		}
 		ledKapat();
- 2de:	24 df       	rcall	.-440    	; 0x128 <ledKapat>
- 2e0:	08 95       	ret
+ 2fa:	16 df       	rcall	.-468    	; 0x128 <ledKapat>
+ 2fc:	08 95       	ret
 
-000002e2 <calismaModlarininUygulanmasi>:
+000002fe <calismaModlarininUygulanmasi>:
 /*
 	Bu fonksiyon; farklý durumlara göre belirlenen çalýþma modunu uygular.
 */
 void calismaModlarininUygulanmasi()
 {
 	emniyetTedbirleri();
- 2e2:	d6 df       	rcall	.-84     	; 0x290 <emniyetTedbirleri>
+ 2fe:	d9 df       	rcall	.-78     	; 0x2b2 <emniyetTedbirleri>
 			
 	switch(calismaModu)
- 2e4:	80 91 b6 00 	lds	r24, 0x00B6	; 0x8000b6 <calismaModu>
- 2e8:	85 34       	cpi	r24, 0x45	; 69
- 2ea:	59 f0       	breq	.+22     	; 0x302 <calismaModlarininUygulanmasi+0x20>
- 2ec:	18 f4       	brcc	.+6      	; 0x2f4 <calismaModlarininUygulanmasi+0x12>
- 2ee:	84 34       	cpi	r24, 0x44	; 68
- 2f0:	31 f0       	breq	.+12     	; 0x2fe <calismaModlarininUygulanmasi+0x1c>
- 2f2:	08 95       	ret
- 2f4:	8f 34       	cpi	r24, 0x4F	; 79
- 2f6:	71 f0       	breq	.+28     	; 0x314 <calismaModlarininUygulanmasi+0x32>
- 2f8:	83 35       	cpi	r24, 0x53	; 83
- 2fa:	99 f0       	breq	.+38     	; 0x322 <calismaModlarininUygulanmasi+0x40>
- 2fc:	08 95       	ret
+ 300:	80 91 b9 00 	lds	r24, 0x00B9	; 0x8000b9 <calismaModu>
+ 304:	85 34       	cpi	r24, 0x45	; 69
+ 306:	69 f0       	breq	.+26     	; 0x322 <calismaModlarininUygulanmasi+0x24>
+ 308:	18 f4       	brcc	.+6      	; 0x310 <calismaModlarininUygulanmasi+0x12>
+ 30a:	84 34       	cpi	r24, 0x44	; 68
+ 30c:	31 f0       	breq	.+12     	; 0x31a <calismaModlarininUygulanmasi+0x1c>
+ 30e:	08 95       	ret
+ 310:	8f 34       	cpi	r24, 0x4F	; 79
+ 312:	81 f0       	breq	.+32     	; 0x334 <calismaModlarininUygulanmasi+0x36>
+ 314:	83 35       	cpi	r24, 0x53	; 83
+ 316:	a9 f0       	breq	.+42     	; 0x342 <calismaModlarininUygulanmasi+0x44>
+ 318:	08 95       	ret
 	{
 		case 'D':
 			motor1_dur();
- 2fe:	e6 de       	rcall	.-564    	; 0xcc <motor1_dur>
+ 31a:	d8 de       	rcall	.-592    	; 0xcc <motor1_dur>
+			optik_kapi_emniyeti_disable();
+ 31c:	f9 de       	rcall	.-526    	; 0x110 <optik_kapi_emniyeti_disable>
+			optik_Encoder_disable();
+ 31e:	f4 de       	rcall	.-536    	; 0x108 <optik_Encoder_disable>
 			
 		break;
- 300:	08 95       	ret
+ 320:	08 95       	ret
 				
 		case 'E':
 			if (!durum_switch_kapali())	//Kapý kapalý iken tekrar açýlmamasý için switch durumuna baðlý olarak kapý açtýrýldý
- 302:	1a df       	rcall	.-460    	; 0x138 <durum_switch_kapali>
- 304:	81 11       	cpse	r24, r1
- 306:	02 c0       	rjmp	.+4      	; 0x30c <calismaModlarininUygulanmasi+0x2a>
+ 322:	0a df       	rcall	.-492    	; 0x138 <durum_switch_kapali>
+ 324:	81 11       	cpse	r24, r1
+ 326:	02 c0       	rjmp	.+4      	; 0x32c <calismaModlarininUygulanmasi+0x2e>
 			{
 				kapiyi_ac();
- 308:	6f df       	rcall	.-290    	; 0x1e8 <kapiyi_ac>
- 30a:	08 95       	ret
+ 328:	70 df       	rcall	.-288    	; 0x20a <kapiyi_ac>
+ 32a:	08 95       	ret
 			}
 			else
 			{
 				sayacEmniyet=EMNIYET_BEKLEME_SURESI+1;	//Emniyet sayacýndan dolayý beklemeyi önlemek için sayaç güvenli deðere ayarlandý
- 30c:	86 e0       	ldi	r24, 0x06	; 6
- 30e:	80 93 b3 00 	sts	0x00B3, r24	; 0x8000b3 <sayacEmniyet>
- 312:	08 95       	ret
+ 32c:	86 e0       	ldi	r24, 0x06	; 6
+ 32e:	80 93 b6 00 	sts	0x00B6, r24	; 0x8000b6 <sayacEmniyet>
+ 332:	08 95       	ret
 		break;
 				
 				
 		case 'O':
 				
 			kapiyi_otomatik_acma_kapatma();
- 314:	8d df       	rcall	.-230    	; 0x230 <kapiyi_otomatik_acma_kapatma>
+ 334:	8e df       	rcall	.-228    	; 0x252 <kapiyi_otomatik_acma_kapatma>
 			if (!birSaniye)
- 316:	80 91 b0 00 	lds	r24, 0x00B0	; 0x8000b0 <birSaniye>
- 31a:	81 11       	cpse	r24, r1
- 31c:	09 c0       	rjmp	.+18     	; 0x330 <calismaModlarininUygulanmasi+0x4e>
+ 336:	80 91 b3 00 	lds	r24, 0x00B3	; 0x8000b3 <birSaniye>
+ 33a:	81 11       	cpse	r24, r1
+ 33c:	09 c0       	rjmp	.+18     	; 0x350 <calismaModlarininUygulanmasi+0x52>
 			{
 				kapi_acik_kapali_kontrolu();
- 31e:	70 df       	rcall	.-288    	; 0x200 <kapi_acik_kapali_kontrolu>
- 320:	08 95       	ret
+ 33e:	71 df       	rcall	.-286    	; 0x222 <kapi_acik_kapali_kontrolu>
+ 340:	08 95       	ret
 			}
 				
 		break;
 				
 		case 'S':
 			if (motor1_sikisma_yon)
- 322:	80 91 b5 00 	lds	r24, 0x00B5	; 0x8000b5 <motor1_sikisma_yon>
- 326:	88 23       	and	r24, r24
- 328:	11 f0       	breq	.+4      	; 0x32e <calismaModlarininUygulanmasi+0x4c>
+ 342:	80 91 b8 00 	lds	r24, 0x00B8	; 0x8000b8 <motor1_sikisma_yon>
+ 346:	88 23       	and	r24, r24
+ 348:	11 f0       	breq	.+4      	; 0x34e <calismaModlarininUygulanmasi+0x50>
 			{
 				kapiyi_ac();
- 32a:	5e df       	rcall	.-324    	; 0x1e8 <kapiyi_ac>
- 32c:	08 95       	ret
+ 34a:	5f df       	rcall	.-322    	; 0x20a <kapiyi_ac>
+ 34c:	08 95       	ret
 			}
 			else
 			{
 				kapiyi_kapat();
- 32e:	4d df       	rcall	.-358    	; 0x1ca <kapiyi_kapat>
- 330:	08 95       	ret
+ 34e:	4e df       	rcall	.-356    	; 0x1ec <kapiyi_kapat>
+ 350:	08 95       	ret
 
-00000332 <anahtarKonumunaGoreSistemin_isletilmesi>:
+00000352 <anahtarKonumunaGoreSistemin_isletilmesi>:
 	Bu fonksiyon; 3 konumlu bir anahtar ile kapýyý "Açýk","Kapalý" ve "Otomatik" 
 	konumuna manuel olarak durumlandýrýlabilir.
 */
 void anahtarKonumunaGoreSistemin_isletilmesi()
 {
 	switch (anahtarKonumu)
- 332:	80 91 bc 00 	lds	r24, 0x00BC	; 0x8000bc <anahtarKonumu>
- 336:	81 30       	cpi	r24, 0x01	; 1
- 338:	31 f0       	breq	.+12     	; 0x346 <anahtarKonumunaGoreSistemin_isletilmesi+0x14>
- 33a:	18 f0       	brcs	.+6      	; 0x342 <anahtarKonumunaGoreSistemin_isletilmesi+0x10>
- 33c:	82 30       	cpi	r24, 0x02	; 2
- 33e:	29 f0       	breq	.+10     	; 0x34a <anahtarKonumunaGoreSistemin_isletilmesi+0x18>
- 340:	08 95       	ret
+ 352:	80 91 bf 00 	lds	r24, 0x00BF	; 0x8000bf <anahtarKonumu>
+ 356:	81 30       	cpi	r24, 0x01	; 1
+ 358:	31 f0       	breq	.+12     	; 0x366 <anahtarKonumunaGoreSistemin_isletilmesi+0x14>
+ 35a:	18 f0       	brcs	.+6      	; 0x362 <anahtarKonumunaGoreSistemin_isletilmesi+0x10>
+ 35c:	82 30       	cpi	r24, 0x02	; 2
+ 35e:	29 f0       	breq	.+10     	; 0x36a <anahtarKonumunaGoreSistemin_isletilmesi+0x18>
+ 360:	08 95       	ret
 	{
 		case 0:
 		kapiyi_ac();
- 342:	52 df       	rcall	.-348    	; 0x1e8 <kapiyi_ac>
+ 362:	53 df       	rcall	.-346    	; 0x20a <kapiyi_ac>
 		break;
- 344:	08 95       	ret
+ 364:	08 95       	ret
 		
 		case 1:
 		calismaModlarininUygulanmasi();
- 346:	cd df       	rcall	.-102    	; 0x2e2 <calismaModlarininUygulanmasi>
+ 366:	cb df       	rcall	.-106    	; 0x2fe <calismaModlarininUygulanmasi>
 		break;
- 348:	08 95       	ret
+ 368:	08 95       	ret
 		
 		case 2:
 		kapiyi_kapat();
- 34a:	3f df       	rcall	.-386    	; 0x1ca <kapiyi_kapat>
- 34c:	08 95       	ret
+ 36a:	40 df       	rcall	.-384    	; 0x1ec <kapiyi_kapat>
+ 36c:	08 95       	ret
 
-0000034e <motor1_sikisiklik_kontrolu>:
+0000036e <motor1_sikisiklik_kontrolu>:
 	karþýlaþtýrýlarak tespit edilir ve deðiþkene atanýr.
 */
 
 void motor1_sikisiklik_kontrolu()
 {
 	if (motor1_enable())
- 34e:	c2 de       	rcall	.-636    	; 0xd4 <motor1_enable>
- 350:	88 23       	and	r24, r24
- 352:	c1 f0       	breq	.+48     	; 0x384 <motor1_sikisiklik_kontrolu+0x36>
+ 36e:	b2 de       	rcall	.-668    	; 0xd4 <motor1_enable>
+ 370:	88 23       	and	r24, r24
+ 372:	c1 f0       	breq	.+48     	; 0x3a4 <motor1_sikisiklik_kontrolu+0x36>
 	{
 		if (sayac_motorAdim==onceki_sayac_motorAdim)
- 354:	90 91 ab 00 	lds	r25, 0x00AB	; 0x8000ab <sayac_motorAdim>
- 358:	80 91 ba 00 	lds	r24, 0x00BA	; 0x8000ba <onceki_sayac_motorAdim>
- 35c:	98 13       	cpse	r25, r24
- 35e:	10 c0       	rjmp	.+32     	; 0x380 <motor1_sikisiklik_kontrolu+0x32>
+ 374:	90 91 ab 00 	lds	r25, 0x00AB	; 0x8000ab <sayac_motorAdim>
+ 378:	80 91 bd 00 	lds	r24, 0x00BD	; 0x8000bd <onceki_sayac_motorAdim>
+ 37c:	98 13       	cpse	r25, r24
+ 37e:	10 c0       	rjmp	.+32     	; 0x3a0 <motor1_sikisiklik_kontrolu+0x32>
 		{
 			motor1_sikisma=true;
- 360:	81 e0       	ldi	r24, 0x01	; 1
- 362:	80 93 ae 00 	sts	0x00AE, r24	; 0x8000ae <motor1_sikisma>
+ 380:	81 e0       	ldi	r24, 0x01	; 1
+ 382:	80 93 b1 00 	sts	0x00B1, r24	; 0x8000b1 <motor1_sikisma>
 			motor1_sikisma_yon=motor1_yon;
- 366:	80 91 b2 00 	lds	r24, 0x00B2	; 0x8000b2 <motor1_yon>
- 36a:	80 93 b5 00 	sts	0x00B5, r24	; 0x8000b5 <motor1_sikisma_yon>
+ 386:	80 91 b5 00 	lds	r24, 0x00B5	; 0x8000b5 <motor1_yon>
+ 38a:	80 93 b8 00 	sts	0x00B8, r24	; 0x8000b8 <motor1_sikisma_yon>
 			ledPeriyot=LED_ARIZA;
- 36e:	88 e0       	ldi	r24, 0x08	; 8
- 370:	80 93 ad 00 	sts	0x00AD, r24	; 0x8000ad <ledPeriyot>
+ 38e:	88 e0       	ldi	r24, 0x08	; 8
+ 390:	80 93 ae 00 	sts	0x00AE, r24	; 0x8000ae <ledPeriyot>
 			sayac_motor1_sikisma++;
- 374:	80 91 b4 00 	lds	r24, 0x00B4	; 0x8000b4 <sayac_motor1_sikisma>
- 378:	8f 5f       	subi	r24, 0xFF	; 255
- 37a:	80 93 b4 00 	sts	0x00B4, r24	; 0x8000b4 <sayac_motor1_sikisma>
- 37e:	02 c0       	rjmp	.+4      	; 0x384 <motor1_sikisiklik_kontrolu+0x36>
+ 394:	80 91 b7 00 	lds	r24, 0x00B7	; 0x8000b7 <sayac_motor1_sikisma>
+ 398:	8f 5f       	subi	r24, 0xFF	; 255
+ 39a:	80 93 b7 00 	sts	0x00B7, r24	; 0x8000b7 <sayac_motor1_sikisma>
+ 39e:	02 c0       	rjmp	.+4      	; 0x3a4 <motor1_sikisiklik_kontrolu+0x36>
 		}
 		else
 		{
 			motor1_sikisma=false;
- 380:	10 92 ae 00 	sts	0x00AE, r1	; 0x8000ae <motor1_sikisma>
+ 3a0:	10 92 b1 00 	sts	0x00B1, r1	; 0x8000b1 <motor1_sikisma>
 		}
 	} 
 	onceki_sayac_motorAdim=sayac_motorAdim;
- 384:	80 91 ab 00 	lds	r24, 0x00AB	; 0x8000ab <sayac_motorAdim>
- 388:	80 93 ba 00 	sts	0x00BA, r24	; 0x8000ba <onceki_sayac_motorAdim>
- 38c:	08 95       	ret
+ 3a4:	80 91 ab 00 	lds	r24, 0x00AB	; 0x8000ab <sayac_motorAdim>
+ 3a8:	80 93 bd 00 	sts	0x00BD, r24	; 0x8000bd <onceki_sayac_motorAdim>
+ 3ac:	08 95       	ret
 
-0000038e <led_komuta>:
+000003ae <led_komuta>:
 }
 
 void led_komuta()
 {
 	if (durumLed)
- 38e:	80 91 b1 00 	lds	r24, 0x00B1	; 0x8000b1 <durumLed>
- 392:	88 23       	and	r24, r24
- 394:	11 f0       	breq	.+4      	; 0x39a <led_komuta+0xc>
+ 3ae:	80 91 b4 00 	lds	r24, 0x00B4	; 0x8000b4 <durumLed>
+ 3b2:	88 23       	and	r24, r24
+ 3b4:	11 f0       	breq	.+4      	; 0x3ba <led_komuta+0xc>
 	{
 		ledAc();
- 396:	c6 de       	rcall	.-628    	; 0x124 <ledAc>
- 398:	08 95       	ret
+ 3b6:	b6 de       	rcall	.-660    	; 0x124 <ledAc>
+ 3b8:	08 95       	ret
 	}
 	else
 	{
 		ledKapat();
- 39a:	c6 de       	rcall	.-628    	; 0x128 <ledKapat>
- 39c:	08 95       	ret
+ 3ba:	b6 de       	rcall	.-660    	; 0x128 <ledKapat>
+ 3bc:	08 95       	ret
 
-0000039e <uart_yazdir>:
+000003be <uart_yazdir>:
 	}
 }
 
 void uart_yazdir()
 {
- 39e:	cf 93       	push	r28
- 3a0:	df 93       	push	r29
- 3a2:	cd b7       	in	r28, 0x3d	; 61
- 3a4:	de b7       	in	r29, 0x3e	; 62
- 3a6:	27 97       	sbiw	r28, 0x07	; 7
- 3a8:	0f b6       	in	r0, 0x3f	; 63
- 3aa:	f8 94       	cli
- 3ac:	de bf       	out	0x3e, r29	; 62
- 3ae:	0f be       	out	0x3f, r0	; 63
- 3b0:	cd bf       	out	0x3d, r28	; 61
+ 3be:	cf 93       	push	r28
+ 3c0:	df 93       	push	r29
+ 3c2:	cd b7       	in	r28, 0x3d	; 61
+ 3c4:	de b7       	in	r29, 0x3e	; 62
+ 3c6:	27 97       	sbiw	r28, 0x07	; 7
+ 3c8:	0f b6       	in	r0, 0x3f	; 63
+ 3ca:	f8 94       	cli
+ 3cc:	de bf       	out	0x3e, r29	; 62
+ 3ce:	0f be       	out	0x3f, r0	; 63
+ 3d0:	cd bf       	out	0x3d, r28	; 61
     } else if (__radix < 2 || __radix > 36) {
 	*__s = 0;
 	return __s;
     } else {
 	extern char *__itoa_ncheck (int, char *, unsigned char);
 	return __itoa_ncheck (__val, __s, __radix);
- 3b2:	4a e0       	ldi	r20, 0x0A	; 10
- 3b4:	be 01       	movw	r22, r28
- 3b6:	6f 5f       	subi	r22, 0xFF	; 255
- 3b8:	7f 4f       	sbci	r23, 0xFF	; 255
- 3ba:	80 91 a9 00 	lds	r24, 0x00A9	; 0x8000a9 <isikSeviyesi>
- 3be:	90 91 aa 00 	lds	r25, 0x00AA	; 0x8000aa <isikSeviyesi+0x1>
- 3c2:	8c d1       	rcall	.+792    	; 0x6dc <__itoa_ncheck>
+ 3d2:	4a e0       	ldi	r20, 0x0A	; 10
+ 3d4:	be 01       	movw	r22, r28
+ 3d6:	6f 5f       	subi	r22, 0xFF	; 255
+ 3d8:	7f 4f       	sbci	r23, 0xFF	; 255
+ 3da:	80 91 a9 00 	lds	r24, 0x00A9	; 0x8000a9 <isikSeviyesi>
+ 3de:	90 91 aa 00 	lds	r25, 0x00AA	; 0x8000aa <isikSeviyesi+0x1>
+ 3e2:	a8 d1       	rcall	.+848    	; 0x734 <__itoa_ncheck>
 	char buffer[7];
 	
 	itoa( isikSeviyesi, buffer, 10);   // convert interger into string (decimal format)
 	uart_puts("\t");
- 3c4:	80 e6       	ldi	r24, 0x60	; 96
- 3c6:	90 e0       	ldi	r25, 0x00	; 0
- 3c8:	67 d1       	rcall	.+718    	; 0x698 <uart_puts>
+ 3e4:	80 e6       	ldi	r24, 0x60	; 96
+ 3e6:	90 e0       	ldi	r25, 0x00	; 0
+ 3e8:	83 d1       	rcall	.+774    	; 0x6f0 <uart_puts>
 	uart_puts(buffer);        
- 3ca:	ce 01       	movw	r24, r28
- 3cc:	01 96       	adiw	r24, 0x01	; 1
- 3ce:	64 d1       	rcall	.+712    	; 0x698 <uart_puts>
+ 3ea:	ce 01       	movw	r24, r28
+ 3ec:	01 96       	adiw	r24, 0x01	; 1
+ 3ee:	80 d1       	rcall	.+768    	; 0x6f0 <uart_puts>
 	uart_puts("\t");
- 3d0:	80 e6       	ldi	r24, 0x60	; 96
- 3d2:	90 e0       	ldi	r25, 0x00	; 0
- 3d4:	61 d1       	rcall	.+706    	; 0x698 <uart_puts>
- 3d6:	80 91 bc 00 	lds	r24, 0x00BC	; 0x8000bc <anahtarKonumu>
- 3da:	4a e0       	ldi	r20, 0x0A	; 10
- 3dc:	be 01       	movw	r22, r28
- 3de:	6f 5f       	subi	r22, 0xFF	; 255
- 3e0:	7f 4f       	sbci	r23, 0xFF	; 255
- 3e2:	90 e0       	ldi	r25, 0x00	; 0
- 3e4:	7b d1       	rcall	.+758    	; 0x6dc <__itoa_ncheck>
-	itoa( sayacGece, buffer, 10);
-	uart_puts(buffer);
-	uart_puts("\t");
-	*/
-	itoa( anahtarKonumu, buffer, 10);
-	uart_puts(buffer);
- 3e6:	ce 01       	movw	r24, r28
- 3e8:	01 96       	adiw	r24, 0x01	; 1
- 3ea:	56 d1       	rcall	.+684    	; 0x698 <uart_puts>
-	uart_puts("\t");
- 3ec:	80 e6       	ldi	r24, 0x60	; 96
- 3ee:	90 e0       	ldi	r25, 0x00	; 0
- 3f0:	53 d1       	rcall	.+678    	; 0x698 <uart_puts>
- 3f2:	80 91 ab 00 	lds	r24, 0x00AB	; 0x8000ab <sayac_motorAdim>
+ 3f0:	80 e6       	ldi	r24, 0x60	; 96
+ 3f2:	90 e0       	ldi	r25, 0x00	; 0
+ 3f4:	7d d1       	rcall	.+762    	; 0x6f0 <uart_puts>
  3f6:	4a e0       	ldi	r20, 0x0A	; 10
  3f8:	be 01       	movw	r22, r28
  3fa:	6f 5f       	subi	r22, 0xFF	; 255
  3fc:	7f 4f       	sbci	r23, 0xFF	; 255
- 3fe:	08 2e       	mov	r0, r24
- 400:	00 0c       	add	r0, r0
- 402:	99 0b       	sbc	r25, r25
- 404:	6b d1       	rcall	.+726    	; 0x6dc <__itoa_ncheck>
+ 3fe:	80 91 ac 00 	lds	r24, 0x00AC	; 0x8000ac <sayacGece>
+ 402:	90 91 ad 00 	lds	r25, 0x00AD	; 0x8000ad <sayacGece+0x1>
+ 406:	96 d1       	rcall	.+812    	; 0x734 <__itoa_ncheck>
+
+	itoa( sayacGece, buffer, 10);
+	uart_puts(buffer);
+ 408:	ce 01       	movw	r24, r28
+ 40a:	01 96       	adiw	r24, 0x01	; 1
+ 40c:	71 d1       	rcall	.+738    	; 0x6f0 <uart_puts>
+	uart_puts("\t");
+ 40e:	80 e6       	ldi	r24, 0x60	; 96
+ 410:	90 e0       	ldi	r25, 0x00	; 0
+ 412:	6e d1       	rcall	.+732    	; 0x6f0 <uart_puts>
+ 414:	4a e0       	ldi	r20, 0x0A	; 10
+ 416:	be 01       	movw	r22, r28
+ 418:	6f 5f       	subi	r22, 0xFF	; 255
+ 41a:	7f 4f       	sbci	r23, 0xFF	; 255
+ 41c:	80 91 af 00 	lds	r24, 0x00AF	; 0x8000af <kapanmaGecikmesi>
+ 420:	90 91 b0 00 	lds	r25, 0x00B0	; 0x8000b0 <kapanmaGecikmesi+0x1>
+ 424:	87 d1       	rcall	.+782    	; 0x734 <__itoa_ncheck>
+	
+	itoa( kapanmaGecikmesi, buffer, 10);
+	uart_puts(buffer);
+ 426:	ce 01       	movw	r24, r28
+ 428:	01 96       	adiw	r24, 0x01	; 1
+ 42a:	62 d1       	rcall	.+708    	; 0x6f0 <uart_puts>
+	uart_puts("\t");
+ 42c:	80 e6       	ldi	r24, 0x60	; 96
+ 42e:	90 e0       	ldi	r25, 0x00	; 0
+ 430:	5f d1       	rcall	.+702    	; 0x6f0 <uart_puts>
+ 432:	80 91 ab 00 	lds	r24, 0x00AB	; 0x8000ab <sayac_motorAdim>
+ 436:	4a e0       	ldi	r20, 0x0A	; 10
+ 438:	be 01       	movw	r22, r28
+ 43a:	6f 5f       	subi	r22, 0xFF	; 255
+ 43c:	7f 4f       	sbci	r23, 0xFF	; 255
+ 43e:	08 2e       	mov	r0, r24
+ 440:	00 0c       	add	r0, r0
+ 442:	99 0b       	sbc	r25, r25
+ 444:	77 d1       	rcall	.+750    	; 0x734 <__itoa_ncheck>
 	
 	itoa( sayac_motorAdim, buffer, 10);
 	uart_puts(buffer);
- 406:	ce 01       	movw	r24, r28
- 408:	01 96       	adiw	r24, 0x01	; 1
- 40a:	46 d1       	rcall	.+652    	; 0x698 <uart_puts>
+ 446:	ce 01       	movw	r24, r28
+ 448:	01 96       	adiw	r24, 0x01	; 1
+ 44a:	52 d1       	rcall	.+676    	; 0x6f0 <uart_puts>
 	uart_puts("\t");
- 40c:	80 e6       	ldi	r24, 0x60	; 96
- 40e:	90 e0       	ldi	r25, 0x00	; 0
- 410:	43 d1       	rcall	.+646    	; 0x698 <uart_puts>
+ 44c:	80 e6       	ldi	r24, 0x60	; 96
+ 44e:	90 e0       	ldi	r25, 0x00	; 0
+ 450:	4f d1       	rcall	.+670    	; 0x6f0 <uart_puts>
 
 	uart_putc(calismaModu);
- 412:	80 91 b6 00 	lds	r24, 0x00B6	; 0x8000b6 <calismaModu>
- 416:	2f d1       	rcall	.+606    	; 0x676 <uart_putc>
+ 452:	80 91 b9 00 	lds	r24, 0x00B9	; 0x8000b9 <calismaModu>
+ 456:	3b d1       	rcall	.+630    	; 0x6ce <uart_putc>
 	uart_puts("\n");
- 418:	82 e6       	ldi	r24, 0x62	; 98
- 41a:	90 e0       	ldi	r25, 0x00	; 0
- 41c:	3d d1       	rcall	.+634    	; 0x698 <uart_puts>
+ 458:	82 e6       	ldi	r24, 0x62	; 98
+ 45a:	90 e0       	ldi	r25, 0x00	; 0
+ 45c:	49 d1       	rcall	.+658    	; 0x6f0 <uart_puts>
 
 }
- 41e:	27 96       	adiw	r28, 0x07	; 7
- 420:	0f b6       	in	r0, 0x3f	; 63
- 422:	f8 94       	cli
- 424:	de bf       	out	0x3e, r29	; 62
- 426:	0f be       	out	0x3f, r0	; 63
- 428:	cd bf       	out	0x3d, r28	; 61
- 42a:	df 91       	pop	r29
- 42c:	cf 91       	pop	r28
- 42e:	08 95       	ret
+ 45e:	27 96       	adiw	r28, 0x07	; 7
+ 460:	0f b6       	in	r0, 0x3f	; 63
+ 462:	f8 94       	cli
+ 464:	de bf       	out	0x3e, r29	; 62
+ 466:	0f be       	out	0x3f, r0	; 63
+ 468:	cd bf       	out	0x3d, r28	; 61
+ 46a:	df 91       	pop	r29
+ 46c:	cf 91       	pop	r28
+ 46e:	08 95       	ret
 
-00000430 <zamanli_islemler>:
+00000470 <zamanli_islemler>:
 	Bu fonksiyon 1 saniye periyod ile çalýþýr. Fonksiyon içinde ýþýk seviyesi ölçülür, 
 	anahtar konumu kontrol edilir, motor sýkýþýklýðý kontrol edilir.
 */
 void zamanli_islemler()
 {
 	if (durum0)
- 430:	80 91 b9 00 	lds	r24, 0x00B9	; 0x8000b9 <durum0>
- 434:	88 23       	and	r24, r24
- 436:	e1 f0       	breq	.+56     	; 0x470 <__stack+0x11>
+ 470:	80 91 bc 00 	lds	r24, 0x00BC	; 0x8000bc <durum0>
+ 474:	88 23       	and	r24, r24
+ 476:	31 f1       	breq	.+76     	; 0x4c4 <zamanli_islemler+0x54>
 	{
 		if (birSaniye)
- 438:	80 91 b0 00 	lds	r24, 0x00B0	; 0x8000b0 <birSaniye>
- 43c:	88 23       	and	r24, r24
- 43e:	d9 f0       	breq	.+54     	; 0x476 <__stack+0x17>
+ 478:	80 91 b3 00 	lds	r24, 0x00B3	; 0x8000b3 <birSaniye>
+ 47c:	88 23       	and	r24, r24
+ 47e:	29 f1       	breq	.+74     	; 0x4ca <zamanli_islemler+0x5a>
 		{
 			birSaniye=false;
- 440:	10 92 b0 00 	sts	0x00B0, r1	; 0x8000b0 <birSaniye>
+ 480:	10 92 b3 00 	sts	0x00B3, r1	; 0x8000b3 <birSaniye>
 			sayacEmniyet++;
- 444:	80 91 b3 00 	lds	r24, 0x00B3	; 0x8000b3 <sayacEmniyet>
- 448:	8f 5f       	subi	r24, 0xFF	; 255
- 44a:	80 93 b3 00 	sts	0x00B3, r24	; 0x8000b3 <sayacEmniyet>
+ 484:	80 91 b6 00 	lds	r24, 0x00B6	; 0x8000b6 <sayacEmniyet>
+ 488:	8f 5f       	subi	r24, 0xFF	; 255
+ 48a:	80 93 b6 00 	sts	0x00B6, r24	; 0x8000b6 <sayacEmniyet>
 			isikSeviyesi=(ADC_get_conversion(6));
- 44e:	86 e0       	ldi	r24, 0x06	; 6
- 450:	25 de       	rcall	.-950    	; 0x9c <ADC_get_conversion>
- 452:	90 93 aa 00 	sts	0x00AA, r25	; 0x8000aa <isikSeviyesi+0x1>
- 456:	80 93 a9 00 	sts	0x00A9, r24	; 0x8000a9 <isikSeviyesi>
+ 48e:	86 e0       	ldi	r24, 0x06	; 6
+ 490:	05 de       	rcall	.-1014   	; 0x9c <ADC_get_conversion>
+ 492:	90 93 aa 00 	sts	0x00AA, r25	; 0x8000aa <isikSeviyesi+0x1>
+ 496:	80 93 a9 00 	sts	0x00A9, r24	; 0x8000a9 <isikSeviyesi>
 			anahtarKonumu=(ADC_get_conversion(7)/340);//üç konumlu anahtar kullanacaðýmýz için 340'a böldüm
- 45a:	87 e0       	ldi	r24, 0x07	; 7
- 45c:	1f de       	rcall	.-962    	; 0x9c <ADC_get_conversion>
- 45e:	64 e5       	ldi	r22, 0x54	; 84
- 460:	71 e0       	ldi	r23, 0x01	; 1
- 462:	28 d1       	rcall	.+592    	; 0x6b4 <__udivmodhi4>
- 464:	60 93 bc 00 	sts	0x00BC, r22	; 0x8000bc <anahtarKonumu>
+ 49a:	87 e0       	ldi	r24, 0x07	; 7
+ 49c:	ff dd       	rcall	.-1026   	; 0x9c <ADC_get_conversion>
+ 49e:	64 e5       	ldi	r22, 0x54	; 84
+ 4a0:	71 e0       	ldi	r23, 0x01	; 1
+ 4a2:	34 d1       	rcall	.+616    	; 0x70c <__udivmodhi4>
+ 4a4:	60 93 bf 00 	sts	0x00BF, r22	; 0x8000bf <anahtarKonumu>
+			kapanmaGecikmesi=(ADC_get_conversion(4)*4);//1024*4/60=68 dakikalýk gecikme ayarlayabilmek için
+ 4a8:	84 e0       	ldi	r24, 0x04	; 4
+ 4aa:	f8 dd       	rcall	.-1040   	; 0x9c <ADC_get_conversion>
+ 4ac:	88 0f       	add	r24, r24
+ 4ae:	99 1f       	adc	r25, r25
+ 4b0:	88 0f       	add	r24, r24
+ 4b2:	99 1f       	adc	r25, r25
+ 4b4:	90 93 b0 00 	sts	0x00B0, r25	; 0x8000b0 <kapanmaGecikmesi+0x1>
+ 4b8:	80 93 af 00 	sts	0x00AF, r24	; 0x8000af <kapanmaGecikmesi>
 			gece_gunduz_algilama();
- 468:	89 de       	rcall	.-750    	; 0x17c <gece_gunduz_algilama>
+ 4bc:	5f de       	rcall	.-834    	; 0x17c <gece_gunduz_algilama>
 			motor1_sikisiklik_kontrolu();
- 46a:	71 df       	rcall	.-286    	; 0x34e <motor1_sikisiklik_kontrolu>
+ 4be:	57 df       	rcall	.-338    	; 0x36e <motor1_sikisiklik_kontrolu>
 			uart_yazdir();
- 46c:	98 df       	rcall	.-208    	; 0x39e <uart_yazdir>
- 46e:	08 95       	ret
+ 4c0:	7e df       	rcall	.-260    	; 0x3be <uart_yazdir>
+ 4c2:	08 95       	ret
 		}
 	}
 	else
 	{
 		birSaniye=true;
- 470:	81 e0       	ldi	r24, 0x01	; 1
- 472:	80 93 b0 00 	sts	0x00B0, r24	; 0x8000b0 <birSaniye>
- 476:	08 95       	ret
+ 4c4:	81 e0       	ldi	r24, 0x01	; 1
+ 4c6:	80 93 b3 00 	sts	0x00B3, r24	; 0x8000b3 <birSaniye>
+ 4ca:	08 95       	ret
 
-00000478 <powerSaveControl>:
+000004cc <powerSaveControl>:
 }
 
 void timer2_init()
 {
 	TCCR2 |=(1<<CS22)|(1<<CS20);
 	TIMSK  |= (1<<TOIE2);
- 478:	47 9a       	sbi	0x08, 7	; 8
- 47a:	85 b7       	in	r24, 0x35	; 53
- 47c:	84 60       	ori	r24, 0x04	; 4
- 47e:	85 bf       	out	0x35, r24	; 53
- 480:	85 b7       	in	r24, 0x35	; 53
- 482:	80 62       	ori	r24, 0x20	; 32
- 484:	85 bf       	out	0x35, r24	; 53
- 486:	08 95       	ret
+ 4cc:	47 9a       	sbi	0x08, 7	; 8
+ 4ce:	85 b7       	in	r24, 0x35	; 53
+ 4d0:	84 60       	ori	r24, 0x04	; 4
+ 4d2:	85 bf       	out	0x35, r24	; 53
+ 4d4:	85 b7       	in	r24, 0x35	; 53
+ 4d6:	80 62       	ori	r24, 0x20	; 32
+ 4d8:	85 bf       	out	0x35, r24	; 53
+ 4da:	08 95       	ret
 
-00000488 <devre_init>:
- 488:	10 92 aa 00 	sts	0x00AA, r1	; 0x8000aa <isikSeviyesi+0x1>
- 48c:	10 92 a9 00 	sts	0x00A9, r1	; 0x8000a9 <isikSeviyesi>
- 490:	10 92 ac 00 	sts	0x00AC, r1	; 0x8000ac <sayacGece>
- 494:	10 92 bb 00 	sts	0x00BB, r1	; 0x8000bb <sayacGunduz>
- 498:	88 e7       	ldi	r24, 0x78	; 120
- 49a:	80 93 ad 00 	sts	0x00AD, r24	; 0x8000ad <ledPeriyot>
- 49e:	10 92 ab 00 	sts	0x00AB, r1	; 0x8000ab <sayac_motorAdim>
- 4a2:	10 92 b4 00 	sts	0x00B4, r1	; 0x8000b4 <sayac_motor1_sikisma>
- 4a6:	81 e0       	ldi	r24, 0x01	; 1
- 4a8:	80 93 b8 00 	sts	0x00B8, r24	; 0x8000b8 <gunduzDurumu>
- 4ac:	8f e4       	ldi	r24, 0x4F	; 79
- 4ae:	80 93 b6 00 	sts	0x00B6, r24	; 0x8000b6 <calismaModu>
- 4b2:	2e de       	rcall	.-932    	; 0x110 <optik_kapi_emniyeti_disable>
- 4b4:	08 95       	ret
-
-000004b6 <WDT_init>:
- 4b6:	9e e0       	ldi	r25, 0x0E	; 14
- 4b8:	88 e1       	ldi	r24, 0x18	; 24
- 4ba:	0f b6       	in	r0, 0x3f	; 63
- 4bc:	f8 94       	cli
- 4be:	a8 95       	wdr
- 4c0:	81 bd       	out	0x21, r24	; 33
- 4c2:	0f be       	out	0x3f, r0	; 63
- 4c4:	91 bd       	out	0x21, r25	; 33
- 4c6:	08 95       	ret
-
-000004c8 <timer0_init>:
- 4c8:	83 b7       	in	r24, 0x33	; 51
- 4ca:	85 60       	ori	r24, 0x05	; 5
- 4cc:	83 bf       	out	0x33, r24	; 51
- 4ce:	89 b7       	in	r24, 0x39	; 57
- 4d0:	81 60       	ori	r24, 0x01	; 1
- 4d2:	89 bf       	out	0x39, r24	; 57
- 4d4:	08 95       	ret
-
-000004d6 <timer1_init>:
- 4d6:	8e b5       	in	r24, 0x2e	; 46
- 4d8:	8d 60       	ori	r24, 0x0D	; 13
- 4da:	8e bd       	out	0x2e, r24	; 46
- 4dc:	82 e4       	ldi	r24, 0x42	; 66
- 4de:	9f e0       	ldi	r25, 0x0F	; 15
- 4e0:	9b bd       	out	0x2b, r25	; 43
- 4e2:	8a bd       	out	0x2a, r24	; 42
- 4e4:	89 b7       	in	r24, 0x39	; 57
- 4e6:	80 61       	ori	r24, 0x10	; 16
- 4e8:	89 bf       	out	0x39, r24	; 57
- 4ea:	08 95       	ret
-
-000004ec <sistem_init>:
- 4ec:	cd df       	rcall	.-102    	; 0x488 <devre_init>
- 4ee:	e2 dd       	rcall	.-1084   	; 0xb4 <motor2_init>
- 4f0:	dc dd       	rcall	.-1096   	; 0xaa <motor1_init>
- 4f2:	bc dd       	rcall	.-1160   	; 0x6c <ADC_init>
- 4f4:	e0 df       	rcall	.-64     	; 0x4b6 <WDT_init>
- 4f6:	f4 dd       	rcall	.-1048   	; 0xe0 <switch_Acik_Kapali_init>
- 4f8:	f1 dd       	rcall	.-1054   	; 0xdc <led_init>
- 4fa:	8c e0       	ldi	r24, 0x0C	; 12
- 4fc:	90 e0       	ldi	r25, 0x00	; 0
- 4fe:	a7 d0       	rcall	.+334    	; 0x64e <uart_init>
- 500:	ea df       	rcall	.-44     	; 0x4d6 <timer1_init>
- 502:	e2 df       	rcall	.-60     	; 0x4c8 <timer0_init>
- 504:	f2 dd       	rcall	.-1052   	; 0xea <optik_Encoder_init>
- 506:	fb dd       	rcall	.-1034   	; 0xfe <optik_kapi_emniyeti_init>
- 508:	b7 df       	rcall	.-146    	; 0x478 <powerSaveControl>
- 50a:	78 94       	sei
+000004dc <devre_init>:
+ 4dc:	10 92 aa 00 	sts	0x00AA, r1	; 0x8000aa <isikSeviyesi+0x1>
+ 4e0:	10 92 a9 00 	sts	0x00A9, r1	; 0x8000a9 <isikSeviyesi>
+ 4e4:	10 92 ad 00 	sts	0x00AD, r1	; 0x8000ad <sayacGece+0x1>
+ 4e8:	10 92 ac 00 	sts	0x00AC, r1	; 0x8000ac <sayacGece>
+ 4ec:	10 92 be 00 	sts	0x00BE, r1	; 0x8000be <sayacGunduz>
+ 4f0:	88 e7       	ldi	r24, 0x78	; 120
+ 4f2:	80 93 ae 00 	sts	0x00AE, r24	; 0x8000ae <ledPeriyot>
+ 4f6:	10 92 ab 00 	sts	0x00AB, r1	; 0x8000ab <sayac_motorAdim>
+ 4fa:	10 92 b7 00 	sts	0x00B7, r1	; 0x8000b7 <sayac_motor1_sikisma>
+ 4fe:	81 e0       	ldi	r24, 0x01	; 1
+ 500:	80 93 bb 00 	sts	0x00BB, r24	; 0x8000bb <gunduzDurumu>
+ 504:	8f e4       	ldi	r24, 0x4F	; 79
+ 506:	80 93 b9 00 	sts	0x00B9, r24	; 0x8000b9 <calismaModu>
+ 50a:	02 de       	rcall	.-1020   	; 0x110 <optik_kapi_emniyeti_disable>
  50c:	08 95       	ret
 
-0000050e <__vector_9>:
+0000050e <WDT_init>:
+ 50e:	9e e0       	ldi	r25, 0x0E	; 14
+ 510:	88 e1       	ldi	r24, 0x18	; 24
+ 512:	0f b6       	in	r0, 0x3f	; 63
+ 514:	f8 94       	cli
+ 516:	a8 95       	wdr
+ 518:	81 bd       	out	0x21, r24	; 33
+ 51a:	0f be       	out	0x3f, r0	; 63
+ 51c:	91 bd       	out	0x21, r25	; 33
+ 51e:	08 95       	ret
+
+00000520 <timer0_init>:
+ 520:	83 b7       	in	r24, 0x33	; 51
+ 522:	85 60       	ori	r24, 0x05	; 5
+ 524:	83 bf       	out	0x33, r24	; 51
+ 526:	89 b7       	in	r24, 0x39	; 57
+ 528:	81 60       	ori	r24, 0x01	; 1
+ 52a:	89 bf       	out	0x39, r24	; 57
+ 52c:	08 95       	ret
+
+0000052e <timer1_init>:
+ 52e:	8e b5       	in	r24, 0x2e	; 46
+ 530:	8d 60       	ori	r24, 0x0D	; 13
+ 532:	8e bd       	out	0x2e, r24	; 46
+ 534:	82 e4       	ldi	r24, 0x42	; 66
+ 536:	9f e0       	ldi	r25, 0x0F	; 15
+ 538:	9b bd       	out	0x2b, r25	; 43
+ 53a:	8a bd       	out	0x2a, r24	; 42
+ 53c:	89 b7       	in	r24, 0x39	; 57
+ 53e:	80 61       	ori	r24, 0x10	; 16
+ 540:	89 bf       	out	0x39, r24	; 57
+ 542:	08 95       	ret
+
+00000544 <sistem_init>:
+ 544:	cb df       	rcall	.-106    	; 0x4dc <devre_init>
+ 546:	b6 dd       	rcall	.-1172   	; 0xb4 <motor2_init>
+ 548:	b0 dd       	rcall	.-1184   	; 0xaa <motor1_init>
+ 54a:	90 dd       	rcall	.-1248   	; 0x6c <ADC_init>
+ 54c:	e0 df       	rcall	.-64     	; 0x50e <WDT_init>
+ 54e:	c8 dd       	rcall	.-1136   	; 0xe0 <switch_Acik_Kapali_init>
+ 550:	c5 dd       	rcall	.-1142   	; 0xdc <led_init>
+ 552:	8c e0       	ldi	r24, 0x0C	; 12
+ 554:	90 e0       	ldi	r25, 0x00	; 0
+ 556:	a7 d0       	rcall	.+334    	; 0x6a6 <uart_init>
+ 558:	ea df       	rcall	.-44     	; 0x52e <timer1_init>
+ 55a:	e2 df       	rcall	.-60     	; 0x520 <timer0_init>
+ 55c:	c6 dd       	rcall	.-1140   	; 0xea <optik_Encoder_init>
+ 55e:	cf dd       	rcall	.-1122   	; 0xfe <optik_kapi_emniyeti_init>
+ 560:	b5 df       	rcall	.-150    	; 0x4cc <powerSaveControl>
+ 562:	78 94       	sei
+ 564:	08 95       	ret
+
+00000566 <__vector_9>:
 }
 
 ISR(TIMER0_OVF_vect)
 {
- 50e:	1f 92       	push	r1
- 510:	0f 92       	push	r0
- 512:	0f b6       	in	r0, 0x3f	; 63
- 514:	0f 92       	push	r0
- 516:	11 24       	eor	r1, r1
- 518:	2f 93       	push	r18
- 51a:	4f 93       	push	r20
- 51c:	5f 93       	push	r21
- 51e:	8f 93       	push	r24
- 520:	9f 93       	push	r25
+ 566:	1f 92       	push	r1
+ 568:	0f 92       	push	r0
+ 56a:	0f b6       	in	r0, 0x3f	; 63
+ 56c:	0f 92       	push	r0
+ 56e:	11 24       	eor	r1, r1
+ 570:	2f 93       	push	r18
+ 572:	4f 93       	push	r20
+ 574:	5f 93       	push	r21
+ 576:	8f 93       	push	r24
+ 578:	9f 93       	push	r25
 	sayactimer0++;
- 522:	80 91 b7 00 	lds	r24, 0x00B7	; 0x8000b7 <sayactimer0>
- 526:	8f 5f       	subi	r24, 0xFF	; 255
- 528:	80 93 b7 00 	sts	0x00B7, r24	; 0x8000b7 <sayactimer0>
+ 57a:	80 91 ba 00 	lds	r24, 0x00BA	; 0x8000ba <sayactimer0>
+ 57e:	8f 5f       	subi	r24, 0xFF	; 255
+ 580:	80 93 ba 00 	sts	0x00BA, r24	; 0x8000ba <sayactimer0>
 	if (sayactimer0>ledPeriyot)
- 52c:	20 91 ad 00 	lds	r18, 0x00AD	; 0x8000ad <ledPeriyot>
- 530:	08 2e       	mov	r0, r24
- 532:	00 0c       	add	r0, r0
- 534:	99 0b       	sbc	r25, r25
- 536:	42 2f       	mov	r20, r18
- 538:	50 e0       	ldi	r21, 0x00	; 0
- 53a:	48 17       	cp	r20, r24
- 53c:	59 07       	cpc	r21, r25
- 53e:	7c f4       	brge	.+30     	; 0x55e <__vector_9+0x50>
+ 584:	20 91 ae 00 	lds	r18, 0x00AE	; 0x8000ae <ledPeriyot>
+ 588:	08 2e       	mov	r0, r24
+ 58a:	00 0c       	add	r0, r0
+ 58c:	99 0b       	sbc	r25, r25
+ 58e:	42 2f       	mov	r20, r18
+ 590:	50 e0       	ldi	r21, 0x00	; 0
+ 592:	48 17       	cp	r20, r24
+ 594:	59 07       	cpc	r21, r25
+ 596:	7c f4       	brge	.+30     	; 0x5b6 <__vector_9+0x50>
 	{
 		if (durumLed)
- 540:	80 91 b1 00 	lds	r24, 0x00B1	; 0x8000b1 <durumLed>
- 544:	88 23       	and	r24, r24
- 546:	29 f0       	breq	.+10     	; 0x552 <__vector_9+0x44>
+ 598:	80 91 b4 00 	lds	r24, 0x00B4	; 0x8000b4 <durumLed>
+ 59c:	88 23       	and	r24, r24
+ 59e:	29 f0       	breq	.+10     	; 0x5aa <__vector_9+0x44>
 		{
 			sayactimer0=0;
- 548:	10 92 b7 00 	sts	0x00B7, r1	; 0x8000b7 <sayactimer0>
+ 5a0:	10 92 ba 00 	sts	0x00BA, r1	; 0x8000ba <sayactimer0>
 			durumLed=false;
- 54c:	10 92 b1 00 	sts	0x00B1, r1	; 0x8000b1 <durumLed>
- 550:	06 c0       	rjmp	.+12     	; 0x55e <__vector_9+0x50>
+ 5a4:	10 92 b4 00 	sts	0x00B4, r1	; 0x8000b4 <durumLed>
+ 5a8:	06 c0       	rjmp	.+12     	; 0x5b6 <__vector_9+0x50>
 		} 
 		else
 		{
 			sayactimer0=(ledPeriyot-3);
- 552:	23 50       	subi	r18, 0x03	; 3
- 554:	20 93 b7 00 	sts	0x00B7, r18	; 0x8000b7 <sayactimer0>
+ 5aa:	23 50       	subi	r18, 0x03	; 3
+ 5ac:	20 93 ba 00 	sts	0x00BA, r18	; 0x8000ba <sayactimer0>
 			durumLed=true;
- 558:	81 e0       	ldi	r24, 0x01	; 1
- 55a:	80 93 b1 00 	sts	0x00B1, r24	; 0x8000b1 <durumLed>
+ 5b0:	81 e0       	ldi	r24, 0x01	; 1
+ 5b2:	80 93 b4 00 	sts	0x00B4, r24	; 0x8000b4 <durumLed>
 		}
 	}
 	if (sayacTest>0)
- 55e:	80 91 af 00 	lds	r24, 0x00AF	; 0x8000af <sayacTest>
- 562:	18 16       	cp	r1, r24
- 564:	1c f4       	brge	.+6      	; 0x56c <__vector_9+0x5e>
+ 5b6:	80 91 b2 00 	lds	r24, 0x00B2	; 0x8000b2 <sayacTest>
+ 5ba:	18 16       	cp	r1, r24
+ 5bc:	1c f4       	brge	.+6      	; 0x5c4 <__vector_9+0x5e>
 	{
 		sayacTest--;
- 566:	81 50       	subi	r24, 0x01	; 1
- 568:	80 93 af 00 	sts	0x00AF, r24	; 0x8000af <sayacTest>
+ 5be:	81 50       	subi	r24, 0x01	; 1
+ 5c0:	80 93 b2 00 	sts	0x00B2, r24	; 0x8000b2 <sayacTest>
 	}
  
 }
- 56c:	9f 91       	pop	r25
- 56e:	8f 91       	pop	r24
- 570:	5f 91       	pop	r21
- 572:	4f 91       	pop	r20
- 574:	2f 91       	pop	r18
- 576:	0f 90       	pop	r0
- 578:	0f be       	out	0x3f, r0	; 63
- 57a:	0f 90       	pop	r0
- 57c:	1f 90       	pop	r1
- 57e:	18 95       	reti
+ 5c4:	9f 91       	pop	r25
+ 5c6:	8f 91       	pop	r24
+ 5c8:	5f 91       	pop	r21
+ 5ca:	4f 91       	pop	r20
+ 5cc:	2f 91       	pop	r18
+ 5ce:	0f 90       	pop	r0
+ 5d0:	0f be       	out	0x3f, r0	; 63
+ 5d2:	0f 90       	pop	r0
+ 5d4:	1f 90       	pop	r1
+ 5d6:	18 95       	reti
 
-00000580 <__vector_6>:
+000005d8 <__vector_6>:
 
 ISR(TIMER1_COMPA_vect)
 {
- 580:	1f 92       	push	r1
- 582:	0f 92       	push	r0
- 584:	0f b6       	in	r0, 0x3f	; 63
- 586:	0f 92       	push	r0
- 588:	11 24       	eor	r1, r1
- 58a:	8f 93       	push	r24
+ 5d8:	1f 92       	push	r1
+ 5da:	0f 92       	push	r0
+ 5dc:	0f b6       	in	r0, 0x3f	; 63
+ 5de:	0f 92       	push	r0
+ 5e0:	11 24       	eor	r1, r1
+ 5e2:	8f 93       	push	r24
 	if (durum0)
- 58c:	80 91 b9 00 	lds	r24, 0x00B9	; 0x8000b9 <durum0>
- 590:	88 23       	and	r24, r24
- 592:	19 f0       	breq	.+6      	; 0x59a <__vector_6+0x1a>
+ 5e4:	80 91 bc 00 	lds	r24, 0x00BC	; 0x8000bc <durum0>
+ 5e8:	88 23       	and	r24, r24
+ 5ea:	19 f0       	breq	.+6      	; 0x5f2 <__vector_6+0x1a>
 	{
 		durum0=false;
- 594:	10 92 b9 00 	sts	0x00B9, r1	; 0x8000b9 <durum0>
- 598:	03 c0       	rjmp	.+6      	; 0x5a0 <__vector_6+0x20>
+ 5ec:	10 92 bc 00 	sts	0x00BC, r1	; 0x8000bc <durum0>
+ 5f0:	03 c0       	rjmp	.+6      	; 0x5f8 <__vector_6+0x20>
 	}
 	else
 	{
 		durum0=true;
- 59a:	81 e0       	ldi	r24, 0x01	; 1
- 59c:	80 93 b9 00 	sts	0x00B9, r24	; 0x8000b9 <durum0>
+ 5f2:	81 e0       	ldi	r24, 0x01	; 1
+ 5f4:	80 93 bc 00 	sts	0x00BC, r24	; 0x8000bc <durum0>
 	}
- 5a0:	8f 91       	pop	r24
- 5a2:	0f 90       	pop	r0
- 5a4:	0f be       	out	0x3f, r0	; 63
- 5a6:	0f 90       	pop	r0
- 5a8:	1f 90       	pop	r1
- 5aa:	18 95       	reti
-
-000005ac <__vector_11>:
-    UART_RxTail = tmptail; 
-    
-    UART_LastRxError = 0;
-    return (lastRxError << 8) + data;
-
-}/* uart_getc */
- 5ac:	1f 92       	push	r1
- 5ae:	0f 92       	push	r0
- 5b0:	0f b6       	in	r0, 0x3f	; 63
- 5b2:	0f 92       	push	r0
- 5b4:	11 24       	eor	r1, r1
- 5b6:	2f 93       	push	r18
- 5b8:	8f 93       	push	r24
- 5ba:	9f 93       	push	r25
- 5bc:	ef 93       	push	r30
- 5be:	ff 93       	push	r31
- 5c0:	8b b1       	in	r24, 0x0b	; 11
- 5c2:	2c b1       	in	r18, 0x0c	; 12
- 5c4:	8c 71       	andi	r24, 0x1C	; 28
- 5c6:	e0 91 66 00 	lds	r30, 0x0066	; 0x800066 <UART_RxHead>
- 5ca:	ef 5f       	subi	r30, 0xFF	; 255
- 5cc:	ef 71       	andi	r30, 0x1F	; 31
- 5ce:	90 91 65 00 	lds	r25, 0x0065	; 0x800065 <UART_RxTail>
- 5d2:	e9 17       	cp	r30, r25
- 5d4:	39 f0       	breq	.+14     	; 0x5e4 <__vector_11+0x38>
- 5d6:	e0 93 66 00 	sts	0x0066, r30	; 0x800066 <UART_RxHead>
- 5da:	f0 e0       	ldi	r31, 0x00	; 0
- 5dc:	e7 59       	subi	r30, 0x97	; 151
- 5de:	ff 4f       	sbci	r31, 0xFF	; 255
- 5e0:	20 83       	st	Z, r18
- 5e2:	01 c0       	rjmp	.+2      	; 0x5e6 <__vector_11+0x3a>
- 5e4:	82 e0       	ldi	r24, 0x02	; 2
- 5e6:	90 91 64 00 	lds	r25, 0x0064	; 0x800064 <__data_end>
- 5ea:	89 2b       	or	r24, r25
- 5ec:	80 93 64 00 	sts	0x0064, r24	; 0x800064 <__data_end>
- 5f0:	ff 91       	pop	r31
- 5f2:	ef 91       	pop	r30
- 5f4:	9f 91       	pop	r25
- 5f6:	8f 91       	pop	r24
- 5f8:	2f 91       	pop	r18
+ 5f8:	8f 91       	pop	r24
  5fa:	0f 90       	pop	r0
  5fc:	0f be       	out	0x3f, r0	; 63
  5fe:	0f 90       	pop	r0
  600:	1f 90       	pop	r1
  602:	18 95       	reti
 
-00000604 <__vector_12>:
+00000604 <__vector_11>:
+    UART_RxTail = tmptail; 
+    
+    UART_LastRxError = 0;
+    return (lastRxError << 8) + data;
+
+}/* uart_getc */
  604:	1f 92       	push	r1
  606:	0f 92       	push	r0
  608:	0f b6       	in	r0, 0x3f	; 63
  60a:	0f 92       	push	r0
  60c:	11 24       	eor	r1, r1
- 60e:	8f 93       	push	r24
- 610:	9f 93       	push	r25
- 612:	ef 93       	push	r30
- 614:	ff 93       	push	r31
- 616:	90 91 68 00 	lds	r25, 0x0068	; 0x800068 <UART_TxHead>
- 61a:	80 91 67 00 	lds	r24, 0x0067	; 0x800067 <UART_TxTail>
- 61e:	98 17       	cp	r25, r24
- 620:	61 f0       	breq	.+24     	; 0x63a <__vector_12+0x36>
- 622:	e0 91 67 00 	lds	r30, 0x0067	; 0x800067 <UART_TxTail>
- 626:	ef 5f       	subi	r30, 0xFF	; 255
- 628:	ef 71       	andi	r30, 0x1F	; 31
- 62a:	e0 93 67 00 	sts	0x0067, r30	; 0x800067 <UART_TxTail>
- 62e:	f0 e0       	ldi	r31, 0x00	; 0
- 630:	e7 57       	subi	r30, 0x77	; 119
- 632:	ff 4f       	sbci	r31, 0xFF	; 255
- 634:	80 81       	ld	r24, Z
- 636:	8c b9       	out	0x0c, r24	; 12
- 638:	01 c0       	rjmp	.+2      	; 0x63c <__vector_12+0x38>
- 63a:	55 98       	cbi	0x0a, 5	; 10
- 63c:	ff 91       	pop	r31
- 63e:	ef 91       	pop	r30
- 640:	9f 91       	pop	r25
- 642:	8f 91       	pop	r24
- 644:	0f 90       	pop	r0
- 646:	0f be       	out	0x3f, r0	; 63
- 648:	0f 90       	pop	r0
- 64a:	1f 90       	pop	r1
- 64c:	18 95       	reti
+ 60e:	2f 93       	push	r18
+ 610:	8f 93       	push	r24
+ 612:	9f 93       	push	r25
+ 614:	ef 93       	push	r30
+ 616:	ff 93       	push	r31
+ 618:	8b b1       	in	r24, 0x0b	; 11
+ 61a:	2c b1       	in	r18, 0x0c	; 12
+ 61c:	8c 71       	andi	r24, 0x1C	; 28
+ 61e:	e0 91 66 00 	lds	r30, 0x0066	; 0x800066 <UART_RxHead>
+ 622:	ef 5f       	subi	r30, 0xFF	; 255
+ 624:	ef 71       	andi	r30, 0x1F	; 31
+ 626:	90 91 65 00 	lds	r25, 0x0065	; 0x800065 <UART_RxTail>
+ 62a:	e9 17       	cp	r30, r25
+ 62c:	39 f0       	breq	.+14     	; 0x63c <__vector_11+0x38>
+ 62e:	e0 93 66 00 	sts	0x0066, r30	; 0x800066 <UART_RxHead>
+ 632:	f0 e0       	ldi	r31, 0x00	; 0
+ 634:	e7 59       	subi	r30, 0x97	; 151
+ 636:	ff 4f       	sbci	r31, 0xFF	; 255
+ 638:	20 83       	st	Z, r18
+ 63a:	01 c0       	rjmp	.+2      	; 0x63e <__vector_11+0x3a>
+ 63c:	82 e0       	ldi	r24, 0x02	; 2
+ 63e:	90 91 64 00 	lds	r25, 0x0064	; 0x800064 <__data_end>
+ 642:	89 2b       	or	r24, r25
+ 644:	80 93 64 00 	sts	0x0064, r24	; 0x800064 <__data_end>
+ 648:	ff 91       	pop	r31
+ 64a:	ef 91       	pop	r30
+ 64c:	9f 91       	pop	r25
+ 64e:	8f 91       	pop	r24
+ 650:	2f 91       	pop	r18
+ 652:	0f 90       	pop	r0
+ 654:	0f be       	out	0x3f, r0	; 63
+ 656:	0f 90       	pop	r0
+ 658:	1f 90       	pop	r1
+ 65a:	18 95       	reti
 
-0000064e <uart_init>:
- 64e:	10 92 68 00 	sts	0x0068, r1	; 0x800068 <UART_TxHead>
- 652:	10 92 67 00 	sts	0x0067, r1	; 0x800067 <UART_TxTail>
- 656:	10 92 66 00 	sts	0x0066, r1	; 0x800066 <UART_RxHead>
- 65a:	10 92 65 00 	sts	0x0065, r1	; 0x800065 <UART_RxTail>
- 65e:	99 23       	and	r25, r25
- 660:	14 f4       	brge	.+4      	; 0x666 <uart_init+0x18>
- 662:	22 e0       	ldi	r18, 0x02	; 2
- 664:	2b b9       	out	0x0b, r18	; 11
- 666:	90 78       	andi	r25, 0x80	; 128
- 668:	90 bd       	out	0x20, r25	; 32
- 66a:	89 b9       	out	0x09, r24	; 9
- 66c:	88 e9       	ldi	r24, 0x98	; 152
- 66e:	8a b9       	out	0x0a, r24	; 10
- 670:	86 e8       	ldi	r24, 0x86	; 134
- 672:	80 bd       	out	0x20, r24	; 32
- 674:	08 95       	ret
+0000065c <__vector_12>:
+ 65c:	1f 92       	push	r1
+ 65e:	0f 92       	push	r0
+ 660:	0f b6       	in	r0, 0x3f	; 63
+ 662:	0f 92       	push	r0
+ 664:	11 24       	eor	r1, r1
+ 666:	8f 93       	push	r24
+ 668:	9f 93       	push	r25
+ 66a:	ef 93       	push	r30
+ 66c:	ff 93       	push	r31
+ 66e:	90 91 68 00 	lds	r25, 0x0068	; 0x800068 <UART_TxHead>
+ 672:	80 91 67 00 	lds	r24, 0x0067	; 0x800067 <UART_TxTail>
+ 676:	98 17       	cp	r25, r24
+ 678:	61 f0       	breq	.+24     	; 0x692 <__vector_12+0x36>
+ 67a:	e0 91 67 00 	lds	r30, 0x0067	; 0x800067 <UART_TxTail>
+ 67e:	ef 5f       	subi	r30, 0xFF	; 255
+ 680:	ef 71       	andi	r30, 0x1F	; 31
+ 682:	e0 93 67 00 	sts	0x0067, r30	; 0x800067 <UART_TxTail>
+ 686:	f0 e0       	ldi	r31, 0x00	; 0
+ 688:	e7 57       	subi	r30, 0x77	; 119
+ 68a:	ff 4f       	sbci	r31, 0xFF	; 255
+ 68c:	80 81       	ld	r24, Z
+ 68e:	8c b9       	out	0x0c, r24	; 12
+ 690:	01 c0       	rjmp	.+2      	; 0x694 <__vector_12+0x38>
+ 692:	55 98       	cbi	0x0a, 5	; 10
+ 694:	ff 91       	pop	r31
+ 696:	ef 91       	pop	r30
+ 698:	9f 91       	pop	r25
+ 69a:	8f 91       	pop	r24
+ 69c:	0f 90       	pop	r0
+ 69e:	0f be       	out	0x3f, r0	; 63
+ 6a0:	0f 90       	pop	r0
+ 6a2:	1f 90       	pop	r1
+ 6a4:	18 95       	reti
 
-00000676 <uart_putc>:
+000006a6 <uart_init>:
+ 6a6:	10 92 68 00 	sts	0x0068, r1	; 0x800068 <UART_TxHead>
+ 6aa:	10 92 67 00 	sts	0x0067, r1	; 0x800067 <UART_TxTail>
+ 6ae:	10 92 66 00 	sts	0x0066, r1	; 0x800066 <UART_RxHead>
+ 6b2:	10 92 65 00 	sts	0x0065, r1	; 0x800065 <UART_RxTail>
+ 6b6:	99 23       	and	r25, r25
+ 6b8:	14 f4       	brge	.+4      	; 0x6be <uart_init+0x18>
+ 6ba:	22 e0       	ldi	r18, 0x02	; 2
+ 6bc:	2b b9       	out	0x0b, r18	; 11
+ 6be:	90 78       	andi	r25, 0x80	; 128
+ 6c0:	90 bd       	out	0x20, r25	; 32
+ 6c2:	89 b9       	out	0x09, r24	; 9
+ 6c4:	88 e9       	ldi	r24, 0x98	; 152
+ 6c6:	8a b9       	out	0x0a, r24	; 10
+ 6c8:	86 e8       	ldi	r24, 0x86	; 134
+ 6ca:	80 bd       	out	0x20, r24	; 32
+ 6cc:	08 95       	ret
+
+000006ce <uart_putc>:
 void uart_putc(unsigned char data)
 {
     unsigned char tmphead;
 
     
     tmphead  = (UART_TxHead + 1) & UART_TX_BUFFER_MASK;
- 676:	20 91 68 00 	lds	r18, 0x0068	; 0x800068 <UART_TxHead>
- 67a:	2f 5f       	subi	r18, 0xFF	; 255
- 67c:	2f 71       	andi	r18, 0x1F	; 31
+ 6ce:	20 91 68 00 	lds	r18, 0x0068	; 0x800068 <UART_TxHead>
+ 6d2:	2f 5f       	subi	r18, 0xFF	; 255
+ 6d4:	2f 71       	andi	r18, 0x1F	; 31
     
     while ( tmphead == UART_TxTail ){
- 67e:	90 91 67 00 	lds	r25, 0x0067	; 0x800067 <UART_TxTail>
- 682:	29 17       	cp	r18, r25
- 684:	e1 f3       	breq	.-8      	; 0x67e <uart_putc+0x8>
+ 6d6:	90 91 67 00 	lds	r25, 0x0067	; 0x800067 <UART_TxTail>
+ 6da:	29 17       	cp	r18, r25
+ 6dc:	e1 f3       	breq	.-8      	; 0x6d6 <uart_putc+0x8>
         ;/* wait for free space in buffer */
     }
     
     UART_TxBuf[tmphead] = data;
- 686:	e2 2f       	mov	r30, r18
- 688:	f0 e0       	ldi	r31, 0x00	; 0
- 68a:	e7 57       	subi	r30, 0x77	; 119
- 68c:	ff 4f       	sbci	r31, 0xFF	; 255
- 68e:	80 83       	st	Z, r24
+ 6de:	e2 2f       	mov	r30, r18
+ 6e0:	f0 e0       	ldi	r31, 0x00	; 0
+ 6e2:	e7 57       	subi	r30, 0x77	; 119
+ 6e4:	ff 4f       	sbci	r31, 0xFF	; 255
+ 6e6:	80 83       	st	Z, r24
     UART_TxHead = tmphead;
- 690:	20 93 68 00 	sts	0x0068, r18	; 0x800068 <UART_TxHead>
+ 6e8:	20 93 68 00 	sts	0x0068, r18	; 0x800068 <UART_TxHead>
 
     /* enable UDRE interrupt */
     UART0_CONTROL    |= _BV(UART0_UDRIE);
- 694:	55 9a       	sbi	0x0a, 5	; 10
- 696:	08 95       	ret
+ 6ec:	55 9a       	sbi	0x0a, 5	; 10
+ 6ee:	08 95       	ret
 
-00000698 <uart_puts>:
+000006f0 <uart_puts>:
 Purpose:  transmit string to UART
 Input:    string to be transmitted
 Returns:  none          
 **************************************************************************/
 void uart_puts(const char *s )
 {
- 698:	cf 93       	push	r28
- 69a:	df 93       	push	r29
- 69c:	ec 01       	movw	r28, r24
+ 6f0:	cf 93       	push	r28
+ 6f2:	df 93       	push	r29
+ 6f4:	ec 01       	movw	r28, r24
     while (*s) 
- 69e:	88 81       	ld	r24, Y
- 6a0:	88 23       	and	r24, r24
- 6a2:	29 f0       	breq	.+10     	; 0x6ae <uart_puts+0x16>
- 6a4:	21 96       	adiw	r28, 0x01	; 1
+ 6f6:	88 81       	ld	r24, Y
+ 6f8:	88 23       	and	r24, r24
+ 6fa:	29 f0       	breq	.+10     	; 0x706 <uart_puts+0x16>
+ 6fc:	21 96       	adiw	r28, 0x01	; 1
       uart_putc(*s++);
- 6a6:	e7 df       	rcall	.-50     	; 0x676 <uart_putc>
+ 6fe:	e7 df       	rcall	.-50     	; 0x6ce <uart_putc>
 Input:    string to be transmitted
 Returns:  none          
 **************************************************************************/
 void uart_puts(const char *s )
 {
     while (*s) 
- 6a8:	89 91       	ld	r24, Y+
- 6aa:	81 11       	cpse	r24, r1
- 6ac:	fc cf       	rjmp	.-8      	; 0x6a6 <uart_puts+0xe>
+ 700:	89 91       	ld	r24, Y+
+ 702:	81 11       	cpse	r24, r1
+ 704:	fc cf       	rjmp	.-8      	; 0x6fe <uart_puts+0xe>
       uart_putc(*s++);
 
 }/* uart_puts */
- 6ae:	df 91       	pop	r29
- 6b0:	cf 91       	pop	r28
- 6b2:	08 95       	ret
+ 706:	df 91       	pop	r29
+ 708:	cf 91       	pop	r28
+ 70a:	08 95       	ret
 
-000006b4 <__udivmodhi4>:
- 6b4:	aa 1b       	sub	r26, r26
- 6b6:	bb 1b       	sub	r27, r27
- 6b8:	51 e1       	ldi	r21, 0x11	; 17
- 6ba:	07 c0       	rjmp	.+14     	; 0x6ca <__udivmodhi4_ep>
+0000070c <__udivmodhi4>:
+ 70c:	aa 1b       	sub	r26, r26
+ 70e:	bb 1b       	sub	r27, r27
+ 710:	51 e1       	ldi	r21, 0x11	; 17
+ 712:	07 c0       	rjmp	.+14     	; 0x722 <__udivmodhi4_ep>
 
-000006bc <__udivmodhi4_loop>:
- 6bc:	aa 1f       	adc	r26, r26
- 6be:	bb 1f       	adc	r27, r27
- 6c0:	a6 17       	cp	r26, r22
- 6c2:	b7 07       	cpc	r27, r23
- 6c4:	10 f0       	brcs	.+4      	; 0x6ca <__udivmodhi4_ep>
- 6c6:	a6 1b       	sub	r26, r22
- 6c8:	b7 0b       	sbc	r27, r23
+00000714 <__udivmodhi4_loop>:
+ 714:	aa 1f       	adc	r26, r26
+ 716:	bb 1f       	adc	r27, r27
+ 718:	a6 17       	cp	r26, r22
+ 71a:	b7 07       	cpc	r27, r23
+ 71c:	10 f0       	brcs	.+4      	; 0x722 <__udivmodhi4_ep>
+ 71e:	a6 1b       	sub	r26, r22
+ 720:	b7 0b       	sbc	r27, r23
 
-000006ca <__udivmodhi4_ep>:
- 6ca:	88 1f       	adc	r24, r24
- 6cc:	99 1f       	adc	r25, r25
- 6ce:	5a 95       	dec	r21
- 6d0:	a9 f7       	brne	.-22     	; 0x6bc <__udivmodhi4_loop>
- 6d2:	80 95       	com	r24
- 6d4:	90 95       	com	r25
- 6d6:	bc 01       	movw	r22, r24
- 6d8:	cd 01       	movw	r24, r26
- 6da:	08 95       	ret
+00000722 <__udivmodhi4_ep>:
+ 722:	88 1f       	adc	r24, r24
+ 724:	99 1f       	adc	r25, r25
+ 726:	5a 95       	dec	r21
+ 728:	a9 f7       	brne	.-22     	; 0x714 <__udivmodhi4_loop>
+ 72a:	80 95       	com	r24
+ 72c:	90 95       	com	r25
+ 72e:	bc 01       	movw	r22, r24
+ 730:	cd 01       	movw	r24, r26
+ 732:	08 95       	ret
 
-000006dc <__itoa_ncheck>:
- 6dc:	bb 27       	eor	r27, r27
- 6de:	4a 30       	cpi	r20, 0x0A	; 10
- 6e0:	31 f4       	brne	.+12     	; 0x6ee <__itoa_ncheck+0x12>
- 6e2:	99 23       	and	r25, r25
- 6e4:	22 f4       	brpl	.+8      	; 0x6ee <__itoa_ncheck+0x12>
- 6e6:	bd e2       	ldi	r27, 0x2D	; 45
- 6e8:	90 95       	com	r25
- 6ea:	81 95       	neg	r24
- 6ec:	9f 4f       	sbci	r25, 0xFF	; 255
- 6ee:	01 c0       	rjmp	.+2      	; 0x6f2 <__utoa_common>
+00000734 <__itoa_ncheck>:
+ 734:	bb 27       	eor	r27, r27
+ 736:	4a 30       	cpi	r20, 0x0A	; 10
+ 738:	31 f4       	brne	.+12     	; 0x746 <__itoa_ncheck+0x12>
+ 73a:	99 23       	and	r25, r25
+ 73c:	22 f4       	brpl	.+8      	; 0x746 <__itoa_ncheck+0x12>
+ 73e:	bd e2       	ldi	r27, 0x2D	; 45
+ 740:	90 95       	com	r25
+ 742:	81 95       	neg	r24
+ 744:	9f 4f       	sbci	r25, 0xFF	; 255
+ 746:	01 c0       	rjmp	.+2      	; 0x74a <__utoa_common>
 
-000006f0 <__utoa_ncheck>:
- 6f0:	bb 27       	eor	r27, r27
+00000748 <__utoa_ncheck>:
+ 748:	bb 27       	eor	r27, r27
 
-000006f2 <__utoa_common>:
- 6f2:	fb 01       	movw	r30, r22
- 6f4:	55 27       	eor	r21, r21
- 6f6:	aa 27       	eor	r26, r26
- 6f8:	88 0f       	add	r24, r24
- 6fa:	99 1f       	adc	r25, r25
- 6fc:	aa 1f       	adc	r26, r26
- 6fe:	a4 17       	cp	r26, r20
- 700:	10 f0       	brcs	.+4      	; 0x706 <__utoa_common+0x14>
- 702:	a4 1b       	sub	r26, r20
- 704:	83 95       	inc	r24
- 706:	50 51       	subi	r21, 0x10	; 16
- 708:	b9 f7       	brne	.-18     	; 0x6f8 <__utoa_common+0x6>
- 70a:	a0 5d       	subi	r26, 0xD0	; 208
- 70c:	aa 33       	cpi	r26, 0x3A	; 58
- 70e:	08 f0       	brcs	.+2      	; 0x712 <__utoa_common+0x20>
- 710:	a9 5d       	subi	r26, 0xD9	; 217
- 712:	a1 93       	st	Z+, r26
- 714:	00 97       	sbiw	r24, 0x00	; 0
- 716:	79 f7       	brne	.-34     	; 0x6f6 <__utoa_common+0x4>
- 718:	b1 11       	cpse	r27, r1
- 71a:	b1 93       	st	Z+, r27
- 71c:	11 92       	st	Z+, r1
- 71e:	cb 01       	movw	r24, r22
- 720:	00 c0       	rjmp	.+0      	; 0x722 <strrev>
+0000074a <__utoa_common>:
+ 74a:	fb 01       	movw	r30, r22
+ 74c:	55 27       	eor	r21, r21
+ 74e:	aa 27       	eor	r26, r26
+ 750:	88 0f       	add	r24, r24
+ 752:	99 1f       	adc	r25, r25
+ 754:	aa 1f       	adc	r26, r26
+ 756:	a4 17       	cp	r26, r20
+ 758:	10 f0       	brcs	.+4      	; 0x75e <__utoa_common+0x14>
+ 75a:	a4 1b       	sub	r26, r20
+ 75c:	83 95       	inc	r24
+ 75e:	50 51       	subi	r21, 0x10	; 16
+ 760:	b9 f7       	brne	.-18     	; 0x750 <__utoa_common+0x6>
+ 762:	a0 5d       	subi	r26, 0xD0	; 208
+ 764:	aa 33       	cpi	r26, 0x3A	; 58
+ 766:	08 f0       	brcs	.+2      	; 0x76a <__utoa_common+0x20>
+ 768:	a9 5d       	subi	r26, 0xD9	; 217
+ 76a:	a1 93       	st	Z+, r26
+ 76c:	00 97       	sbiw	r24, 0x00	; 0
+ 76e:	79 f7       	brne	.-34     	; 0x74e <__utoa_common+0x4>
+ 770:	b1 11       	cpse	r27, r1
+ 772:	b1 93       	st	Z+, r27
+ 774:	11 92       	st	Z+, r1
+ 776:	cb 01       	movw	r24, r22
+ 778:	00 c0       	rjmp	.+0      	; 0x77a <strrev>
 
-00000722 <strrev>:
- 722:	dc 01       	movw	r26, r24
- 724:	fc 01       	movw	r30, r24
- 726:	67 2f       	mov	r22, r23
- 728:	71 91       	ld	r23, Z+
- 72a:	77 23       	and	r23, r23
- 72c:	e1 f7       	brne	.-8      	; 0x726 <strrev+0x4>
- 72e:	32 97       	sbiw	r30, 0x02	; 2
- 730:	04 c0       	rjmp	.+8      	; 0x73a <strrev+0x18>
- 732:	7c 91       	ld	r23, X
- 734:	6d 93       	st	X+, r22
- 736:	70 83       	st	Z, r23
- 738:	62 91       	ld	r22, -Z
- 73a:	ae 17       	cp	r26, r30
- 73c:	bf 07       	cpc	r27, r31
- 73e:	c8 f3       	brcs	.-14     	; 0x732 <strrev+0x10>
- 740:	08 95       	ret
+0000077a <strrev>:
+ 77a:	dc 01       	movw	r26, r24
+ 77c:	fc 01       	movw	r30, r24
+ 77e:	67 2f       	mov	r22, r23
+ 780:	71 91       	ld	r23, Z+
+ 782:	77 23       	and	r23, r23
+ 784:	e1 f7       	brne	.-8      	; 0x77e <strrev+0x4>
+ 786:	32 97       	sbiw	r30, 0x02	; 2
+ 788:	04 c0       	rjmp	.+8      	; 0x792 <strrev+0x18>
+ 78a:	7c 91       	ld	r23, X
+ 78c:	6d 93       	st	X+, r22
+ 78e:	70 83       	st	Z, r23
+ 790:	62 91       	ld	r22, -Z
+ 792:	ae 17       	cp	r26, r30
+ 794:	bf 07       	cpc	r27, r31
+ 796:	c8 f3       	brcs	.-14     	; 0x78a <strrev+0x10>
+ 798:	08 95       	ret
 
-00000742 <_exit>:
- 742:	f8 94       	cli
+0000079a <_exit>:
+ 79a:	f8 94       	cli
 
-00000744 <__stop_program>:
- 744:	ff cf       	rjmp	.-2      	; 0x744 <__stop_program>
+0000079c <__stop_program>:
+ 79c:	ff cf       	rjmp	.-2      	; 0x79c <__stop_program>

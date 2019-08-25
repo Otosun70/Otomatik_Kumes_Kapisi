@@ -34,9 +34,10 @@ typedef bool durum;
 
 
 seviye_t isikSeviyesi;
+seviye_t kapanmaGecikmesi;
 konum_t anahtarKonumu;
 sayac_t sayacGunduz;
-sayac_t sayacGece;
+seviye_t sayacGece;
 sayac_t sayac_motorAdim;
 sayac_t onceki_sayac_motorAdim;
 sayac_t sayactimer0;
