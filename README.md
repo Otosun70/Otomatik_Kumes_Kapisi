@@ -9,4 +9,7 @@
 
 	Proje AtmelStudio ile C dili kullanılarak hazırlanmıştır.
 	MCU olarak Atmega8A, motor sürücü olarak L293D kullanılmıştır.
+
+
+	https://youtu.be/nlaz84sQvDQ
  
